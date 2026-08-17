@@ -1,0 +1,1476 @@
+[
+  {
+    "id": "centre",
+    "name": "Pharmacie du Centre",
+    "address": "12 place Grenette",
+    "city": "38000 Grenoble",
+    "lat": 45.1907,
+    "lng": 5.7325,
+    "criteria": {
+      "accueil": 4.4,
+      "conseil": 4.1,
+      "delivrance": 4.5,
+      "confidentialite": 4.5,
+      "experience": 4.0
+    },
+    "responses_count": 12,
+    "last_response": "2026-05-14",
+    "raisons": [
+      "information",
+      "delivrance"
+    ],
+    "motifs": [
+      "contraception",
+      "contraception_urgence",
+      "symptomes"
+    ],
+    "badges": [],
+    "commentaire": "",
+    "reponses": [
+      {
+        "id": "centre-2",
+        "date": "2026-05-14",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes",
+          "contraception_urgence",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.0,
+          "conseil": 3.9,
+          "delivrance": 4.5,
+          "confidentialite": 4.7,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-4",
+        "date": "2026-03-23",
+        "raison": "information",
+        "motifs": [
+          "contraception_urgence",
+          "contraception",
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.0,
+          "conseil": 3.7,
+          "delivrance": 4.8,
+          "confidentialite": 4.7,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-7",
+        "date": "2026-01-27",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes",
+          "contraception",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 4.7,
+          "conseil": 4.4,
+          "delivrance": 4.6,
+          "confidentialite": 4.1,
+          "experience": 4.2
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-11",
+        "date": "2026-01-22",
+        "raison": "information",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 3.8,
+          "delivrance": 4.4,
+          "confidentialite": 4.9,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-9",
+        "date": "2025-12-04",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.4,
+          "conseil": 3.7,
+          "delivrance": 4.9,
+          "confidentialite": 4.7,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-8",
+        "date": "2025-11-01",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.2,
+          "conseil": 4.7,
+          "delivrance": 4.6,
+          "confidentialite": 4.3,
+          "experience": 3.8
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-10",
+        "date": "2025-10-24",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception_urgence",
+          "symptomes",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5.0,
+          "conseil": 4.4,
+          "delivrance": 4.0,
+          "confidentialite": 4.2,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-5",
+        "date": "2025-08-05",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.3,
+          "conseil": 4.4,
+          "delivrance": 4.9,
+          "confidentialite": 4.4,
+          "experience": 3.6
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-3",
+        "date": "2025-07-17",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception",
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.2,
+          "conseil": 4.6,
+          "delivrance": 4.7,
+          "confidentialite": 4.2,
+          "experience": 3.9
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-1",
+        "date": "2025-06-21",
+        "raison": "information",
+        "motifs": [
+          "symptomes",
+          "contraception",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 4.0,
+          "conseil": 4.5,
+          "delivrance": 4.1,
+          "confidentialite": 4.2,
+          "experience": 3.5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-12",
+        "date": "2025-05-31",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception",
+          "symptomes",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 4.4,
+          "conseil": 3.7,
+          "delivrance": 4.3,
+          "confidentialite": 5,
+          "experience": 4.0
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "centre-6",
+        "date": "2025-04-14",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception_urgence",
+          "contraception",
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.2,
+          "conseil": 3.7,
+          "delivrance": 4.1,
+          "confidentialite": 4.1,
+          "experience": 3.7
+        },
+        "recommande": "oui",
+        "remarques": ""
+      }
+    ],
+    "average": 4.3
+  },
+  {
+    "id": "gare",
+    "name": "Pharmacie de la Gare",
+    "address": "5 rue Émile Zola",
+    "city": "38000 Grenoble",
+    "lat": 45.1885,
+    "lng": 5.7159,
+    "criteria": {
+      "accueil": 3.6,
+      "conseil": 3.0,
+      "delivrance": 3.7,
+      "confidentialite": 4.0,
+      "experience": 3.3
+    },
+    "responses_count": 4,
+    "last_response": "2025-01-20",
+    "raisons": [
+      "delivrance"
+    ],
+    "motifs": [
+      "contraception",
+      "preservatif"
+    ],
+    "badges": [
+      "a_tester"
+    ],
+    "commentaire": "Peu de réponses pour l'instant, à recontacter pour confirmer la tendance.",
+    "reponses": [
+      {
+        "id": "gare-3",
+        "date": "2025-01-20",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 3.3,
+          "conseil": 3.2,
+          "delivrance": 4.3,
+          "confidentialite": 4.3,
+          "experience": 3.0
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      },
+      {
+        "id": "gare-1",
+        "date": "2024-11-24",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 3.6,
+          "conseil": 3.0,
+          "delivrance": 3.1,
+          "confidentialite": 4.2,
+          "experience": 3.6
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      },
+      {
+        "id": "gare-2",
+        "date": "2024-02-28",
+        "raison": "delivrance",
+        "motifs": [
+          "preservatif"
+        ],
+        "criteria": {
+          "accueil": 3.8,
+          "conseil": 3.0,
+          "delivrance": 3.5,
+          "confidentialite": 3.5,
+          "experience": 3.8
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      },
+      {
+        "id": "gare-4",
+        "date": "2024-01-12",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception",
+          "preservatif"
+        ],
+        "criteria": {
+          "accueil": 3.8,
+          "conseil": 2.9,
+          "delivrance": 4.0,
+          "confidentialite": 4.2,
+          "experience": 2.9
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      }
+    ],
+    "average": 3.5
+  },
+  {
+    "id": "vercors",
+    "name": "Pharmacie du Vercors",
+    "address": "8 avenue de la République",
+    "city": "38130 Échirolles",
+    "lat": 45.1553,
+    "lng": 5.7108,
+    "criteria": {
+      "accueil": 4.9,
+      "conseil": 4.8,
+      "delivrance": 4.7,
+      "confidentialite": 4.8,
+      "experience": 4.6
+    },
+    "responses_count": 20,
+    "last_response": "2026-07-30",
+    "raisons": [
+      "information",
+      "delivrance"
+    ],
+    "motifs": [
+      "ivg",
+      "contraception",
+      "violences",
+      "grossesse"
+    ],
+    "badges": [
+      "contactee"
+    ],
+    "commentaire": "Très bons retours constants. Contactée en juillet pour les remercier.",
+    "reponses": [
+      {
+        "id": "vercors-19",
+        "date": "2026-07-30",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.7,
+          "conseil": 5,
+          "delivrance": 5,
+          "confidentialite": 5,
+          "experience": 5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-7",
+        "date": "2026-07-05",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.7,
+          "delivrance": 4.2,
+          "confidentialite": 4.5,
+          "experience": 4.9
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-17",
+        "date": "2026-07-04",
+        "raison": "delivrance",
+        "motifs": [
+          "violences",
+          "ivg",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.4,
+          "conseil": 4.6,
+          "delivrance": 4.5,
+          "confidentialite": 4.4,
+          "experience": 4.9
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-10",
+        "date": "2026-07-01",
+        "raison": "information",
+        "motifs": [
+          "contraception",
+          "ivg",
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 5.0,
+          "conseil": 4.8,
+          "delivrance": 5,
+          "confidentialite": 4.5,
+          "experience": 4.7
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-3",
+        "date": "2026-06-26",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5,
+          "delivrance": 4.3,
+          "confidentialite": 4.7,
+          "experience": 4.8
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-11",
+        "date": "2026-06-25",
+        "raison": "information",
+        "motifs": [
+          "ivg"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.9,
+          "delivrance": 4.5,
+          "confidentialite": 4.5,
+          "experience": 5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-16",
+        "date": "2026-06-06",
+        "raison": "delivrance",
+        "motifs": [
+          "violences",
+          "grossesse",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.3,
+          "delivrance": 4.5,
+          "confidentialite": 4.7,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-13",
+        "date": "2026-05-24",
+        "raison": "information",
+        "motifs": [
+          "ivg",
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.5,
+          "delivrance": 4.6,
+          "confidentialite": 5,
+          "experience": 4.1
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-6",
+        "date": "2026-04-24",
+        "raison": "information",
+        "motifs": [
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 4.9,
+          "conseil": 4.3,
+          "delivrance": 4.4,
+          "confidentialite": 5.0,
+          "experience": 5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-1",
+        "date": "2026-04-13",
+        "raison": "information",
+        "motifs": [
+          "violences",
+          "contraception",
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5,
+          "delivrance": 5,
+          "confidentialite": 5,
+          "experience": 4.5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-4",
+        "date": "2026-03-28",
+        "raison": "information",
+        "motifs": [
+          "grossesse",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5,
+          "delivrance": 4.4,
+          "confidentialite": 4.5,
+          "experience": 4.5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-2",
+        "date": "2026-03-26",
+        "raison": "information",
+        "motifs": [
+          "ivg"
+        ],
+        "criteria": {
+          "accueil": 4.6,
+          "conseil": 4.5,
+          "delivrance": 4.9,
+          "confidentialite": 4.7,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-20",
+        "date": "2026-01-30",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5,
+          "delivrance": 4.7,
+          "confidentialite": 5,
+          "experience": 4.2
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-12",
+        "date": "2025-12-28",
+        "raison": "delivrance",
+        "motifs": [
+          "contraception",
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.8,
+          "delivrance": 4.6,
+          "confidentialite": 4.7,
+          "experience": 4.8
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-9",
+        "date": "2025-12-26",
+        "raison": "information",
+        "motifs": [
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5.0,
+          "delivrance": 5,
+          "confidentialite": 5,
+          "experience": 4.6
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-8",
+        "date": "2025-11-24",
+        "raison": "delivrance",
+        "motifs": [
+          "violences",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 4.9,
+          "conseil": 5,
+          "delivrance": 5,
+          "confidentialite": 4.6,
+          "experience": 4.0
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-14",
+        "date": "2025-11-13",
+        "raison": "delivrance",
+        "motifs": [
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 4.6,
+          "conseil": 5,
+          "delivrance": 5,
+          "confidentialite": 5,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-18",
+        "date": "2025-10-16",
+        "raison": "information",
+        "motifs": [
+          "contraception",
+          "grossesse"
+        ],
+        "criteria": {
+          "accueil": 4.3,
+          "conseil": 4.2,
+          "delivrance": 5,
+          "confidentialite": 5,
+          "experience": 4.7
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-15",
+        "date": "2025-09-20",
+        "raison": "information",
+        "motifs": [
+          "ivg",
+          "grossesse",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 5,
+          "delivrance": 4.8,
+          "confidentialite": 5,
+          "experience": 4.7
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "vercors-5",
+        "date": "2025-08-20",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.9,
+          "delivrance": 4.3,
+          "confidentialite": 5,
+          "experience": 5.0
+        },
+        "recommande": "oui",
+        "remarques": ""
+      }
+    ],
+    "average": 4.8
+  },
+  {
+    "id": "alpes",
+    "name": "Pharmacie des Alpes",
+    "address": "22 rue de la Liberté",
+    "city": "38400 Saint-Martin-d'Hères",
+    "lat": 45.1745,
+    "lng": 5.7684,
+    "criteria": {
+      "accueil": 2.7,
+      "conseil": 3.1,
+      "delivrance": 3.2,
+      "confidentialite": 3.6,
+      "experience": 3.2
+    },
+    "responses_count": 3,
+    "last_response": "2026-06-01",
+    "raisons": [
+      "information"
+    ],
+    "motifs": [
+      "preservatif",
+      "vaccin"
+    ],
+    "badges": [],
+    "commentaire": "",
+    "reponses": [
+      {
+        "id": "alpes-3",
+        "date": "2026-06-01",
+        "raison": "information",
+        "motifs": [
+          "vaccin",
+          "preservatif"
+        ],
+        "criteria": {
+          "accueil": 2.7,
+          "conseil": 2.6,
+          "delivrance": 3.0,
+          "confidentialite": 3.8,
+          "experience": 3.3
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      },
+      {
+        "id": "alpes-1",
+        "date": "2025-11-02",
+        "raison": "information",
+        "motifs": [
+          "vaccin"
+        ],
+        "criteria": {
+          "accueil": 2.7,
+          "conseil": 3.3,
+          "delivrance": 3.0,
+          "confidentialite": 3.9,
+          "experience": 3.1
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      },
+      {
+        "id": "alpes-2",
+        "date": "2025-06-07",
+        "raison": "information",
+        "motifs": [
+          "vaccin",
+          "preservatif"
+        ],
+        "criteria": {
+          "accueil": 2.8,
+          "conseil": 3.4,
+          "delivrance": 3.6,
+          "confidentialite": 3.1,
+          "experience": 3.1
+        },
+        "recommande": "pas_sur",
+        "remarques": ""
+      }
+    ],
+    "average": 3.2
+  },
+  {
+    "id": "marche",
+    "name": "Pharmacie du Marché",
+    "address": "3 place du Marché",
+    "city": "38100 Grenoble",
+    "lat": 45.2011,
+    "lng": 5.7189,
+    "criteria": {
+      "accueil": 4.3,
+      "conseil": 4.0,
+      "delivrance": 4.2,
+      "confidentialite": 4.2,
+      "experience": 3.8
+    },
+    "responses_count": 7,
+    "last_response": "2024-03-10",
+    "raisons": [
+      "delivrance"
+    ],
+    "motifs": [
+      "contraception_urgence",
+      "symptomes"
+    ],
+    "badges": [],
+    "commentaire": "Dernière réponse ancienne — vérifier si la situation a évolué.",
+    "reponses": [
+      {
+        "id": "marche-1",
+        "date": "2024-03-10",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 3.7,
+          "conseil": 4.5,
+          "delivrance": 3.7,
+          "confidentialite": 4.6,
+          "experience": 3.5
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-4",
+        "date": "2024-02-04",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 4.7,
+          "conseil": 4.4,
+          "delivrance": 4.2,
+          "confidentialite": 4.2,
+          "experience": 3.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-5",
+        "date": "2023-08-17",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.4,
+          "conseil": 4.0,
+          "delivrance": 3.7,
+          "confidentialite": 4.2,
+          "experience": 3.7
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-6",
+        "date": "2023-06-04",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 4.6,
+          "conseil": 3.7,
+          "delivrance": 3.8,
+          "confidentialite": 4.3,
+          "experience": 3.9
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-7",
+        "date": "2023-03-31",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 3.9,
+          "conseil": 3.9,
+          "delivrance": 4.6,
+          "confidentialite": 4.4,
+          "experience": 3.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-3",
+        "date": "2023-03-14",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.1,
+          "conseil": 3.9,
+          "delivrance": 4.5,
+          "confidentialite": 4.2,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "marche-2",
+        "date": "2023-03-03",
+        "raison": "delivrance",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 4.5,
+          "conseil": 3.8,
+          "delivrance": 4.7,
+          "confidentialite": 3.5,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      }
+    ],
+    "average": 4.1
+  },
+  {
+    "id": "berriat",
+    "name": "Pharmacie Berriat",
+    "address": "45 cours Berriat",
+    "city": "38000 Grenoble",
+    "lat": 45.1889,
+    "lng": 5.7104,
+    "criteria": {
+      "accueil": 4.7,
+      "conseil": 4.5,
+      "delivrance": 4.5,
+      "confidentialite": 4.7,
+      "experience": 4.4
+    },
+    "responses_count": 9,
+    "last_response": "2026-08-01",
+    "raisons": [
+      "information",
+      "delivrance"
+    ],
+    "motifs": [
+      "transition_hormonale",
+      "trouble_psy",
+      "don_ovocyte"
+    ],
+    "badges": [],
+    "commentaire": "",
+    "reponses": [
+      {
+        "id": "berriat-4",
+        "date": "2026-08-01",
+        "raison": "delivrance",
+        "motifs": [
+          "don_ovocyte",
+          "trouble_psy",
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 4.7,
+          "conseil": 4.9,
+          "delivrance": 4.0,
+          "confidentialite": 4.3,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-1",
+        "date": "2026-06-15",
+        "raison": "information",
+        "motifs": [
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 5.0,
+          "conseil": 4.7,
+          "delivrance": 4.7,
+          "confidentialite": 4.4,
+          "experience": 3.9
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-3",
+        "date": "2026-03-30",
+        "raison": "delivrance",
+        "motifs": [
+          "transition_hormonale",
+          "don_ovocyte"
+        ],
+        "criteria": {
+          "accueil": 4.2,
+          "conseil": 4.6,
+          "delivrance": 5.0,
+          "confidentialite": 5,
+          "experience": 4.8
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-9",
+        "date": "2026-03-02",
+        "raison": "information",
+        "motifs": [
+          "don_ovocyte",
+          "transition_hormonale",
+          "trouble_psy"
+        ],
+        "criteria": {
+          "accueil": 4.9,
+          "conseil": 4.8,
+          "delivrance": 5,
+          "confidentialite": 4.6,
+          "experience": 4.6
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-7",
+        "date": "2026-01-17",
+        "raison": "delivrance",
+        "motifs": [
+          "transition_hormonale",
+          "don_ovocyte"
+        ],
+        "criteria": {
+          "accueil": 4.8,
+          "conseil": 4.6,
+          "delivrance": 4.0,
+          "confidentialite": 4.6,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-8",
+        "date": "2026-01-14",
+        "raison": "delivrance",
+        "motifs": [
+          "trouble_psy",
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 5,
+          "conseil": 4.5,
+          "delivrance": 4.7,
+          "confidentialite": 5,
+          "experience": 4.6
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-6",
+        "date": "2025-12-19",
+        "raison": "information",
+        "motifs": [
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 4.1,
+          "conseil": 4.1,
+          "delivrance": 4.2,
+          "confidentialite": 4.5,
+          "experience": 4.3
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-2",
+        "date": "2025-12-01",
+        "raison": "delivrance",
+        "motifs": [
+          "don_ovocyte",
+          "trouble_psy",
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 4.7,
+          "conseil": 4.7,
+          "delivrance": 4.4,
+          "confidentialite": 5,
+          "experience": 4.4
+        },
+        "recommande": "oui",
+        "remarques": ""
+      },
+      {
+        "id": "berriat-5",
+        "date": "2025-10-25",
+        "raison": "delivrance",
+        "motifs": [
+          "trouble_psy",
+          "don_ovocyte",
+          "transition_hormonale"
+        ],
+        "criteria": {
+          "accueil": 4.5,
+          "conseil": 4.0,
+          "delivrance": 4.9,
+          "confidentialite": 4.6,
+          "experience": 4.6
+        },
+        "recommande": "oui",
+        "remarques": ""
+      }
+    ],
+    "average": 4.6
+  },
+  {
+    "id": "republique",
+    "name": "Pharmacie de la République",
+    "address": "17 rue de la République",
+    "city": "38000 Grenoble",
+    "lat": 45.1867,
+    "lng": 5.7245,
+    "criteria": {
+      "accueil": 1.4,
+      "conseil": 2.0,
+      "delivrance": 1.9,
+      "confidentialite": 2.1,
+      "experience": 1.6
+    },
+    "responses_count": 6,
+    "last_response": "2026-03-02",
+    "raisons": [
+      "information",
+      "delivrance"
+    ],
+    "motifs": [
+      "contraception_urgence",
+      "violences"
+    ],
+    "badges": [
+      "carton_rouge"
+    ],
+    "commentaire": "Plusieurs signalements de jugement et refus. À surveiller de près.",
+    "reponses": [
+      {
+        "id": "republique-3",
+        "date": "2026-03-02",
+        "raison": "information",
+        "motifs": [
+          "violences",
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 1.2,
+          "conseil": 1.8,
+          "delivrance": 1.7,
+          "confidentialite": 1.9,
+          "experience": 2.1
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "republique-5",
+        "date": "2025-11-20",
+        "raison": "delivrance",
+        "motifs": [
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 1.9,
+          "conseil": 2.1,
+          "delivrance": 1.5,
+          "confidentialite": 2.1,
+          "experience": 1.1
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "republique-1",
+        "date": "2025-10-14",
+        "raison": "information",
+        "motifs": [
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 1.4,
+          "conseil": 1.4,
+          "delivrance": 1.6,
+          "confidentialite": 2.3,
+          "experience": 1.5
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "republique-4",
+        "date": "2025-07-05",
+        "raison": "information",
+        "motifs": [
+          "contraception_urgence"
+        ],
+        "criteria": {
+          "accueil": 0.9,
+          "conseil": 2.0,
+          "delivrance": 2.4,
+          "confidentialite": 1.9,
+          "experience": 1.8
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "republique-2",
+        "date": "2025-04-18",
+        "raison": "information",
+        "motifs": [
+          "contraception_urgence",
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 1.5,
+          "conseil": 2.5,
+          "delivrance": 1.9,
+          "confidentialite": 2.3,
+          "experience": 1.1
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "republique-6",
+        "date": "2025-02-03",
+        "raison": "information",
+        "motifs": [
+          "violences"
+        ],
+        "criteria": {
+          "accueil": 1.3,
+          "conseil": 2.1,
+          "delivrance": 2.4,
+          "confidentialite": 2.4,
+          "experience": 1.9
+        },
+        "recommande": "non",
+        "remarques": ""
+      }
+    ],
+    "average": 1.8
+  },
+  {
+    "id": "victorhugo",
+    "name": "Pharmacie Victor Hugo",
+    "address": "2 place Victor Hugo",
+    "city": "38000 Grenoble",
+    "lat": 45.1834,
+    "lng": 5.7301,
+    "criteria": {
+      "accueil": 2.6,
+      "conseil": 2.2,
+      "delivrance": 2.4,
+      "confidentialite": 2.4,
+      "experience": 2.5
+    },
+    "responses_count": 8,
+    "last_response": "2026-04-18",
+    "raisons": [
+      "information"
+    ],
+    "motifs": [
+      "contraception",
+      "symptomes"
+    ],
+    "badges": [
+      "liste_noire"
+    ],
+    "commentaire": "Retirée de l'annuaire public suite à plusieurs témoignages concordants.",
+    "reponses": [
+      {
+        "id": "victorhugo-8",
+        "date": "2026-04-18",
+        "raison": "information",
+        "motifs": [
+          "symptomes",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 2.4,
+          "conseil": 2.2,
+          "delivrance": 2.2,
+          "confidentialite": 2.4,
+          "experience": 2.2
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-2",
+        "date": "2026-02-25",
+        "raison": "information",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 2.8,
+          "conseil": 2.1,
+          "delivrance": 2.7,
+          "confidentialite": 2.6,
+          "experience": 2.8
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-6",
+        "date": "2025-10-28",
+        "raison": "information",
+        "motifs": [
+          "symptomes",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 2.0,
+          "conseil": 2.7,
+          "delivrance": 2.1,
+          "confidentialite": 1.9,
+          "experience": 2.8
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-7",
+        "date": "2025-07-28",
+        "raison": "information",
+        "motifs": [
+          "symptomes",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 3.1,
+          "conseil": 1.8,
+          "delivrance": 2.8,
+          "confidentialite": 2.2,
+          "experience": 2.7
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-1",
+        "date": "2025-06-26",
+        "raison": "information",
+        "motifs": [
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 2.0,
+          "conseil": 2.1,
+          "delivrance": 2.7,
+          "confidentialite": 2.7,
+          "experience": 2.3
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-4",
+        "date": "2025-05-28",
+        "raison": "information",
+        "motifs": [
+          "symptomes",
+          "contraception"
+        ],
+        "criteria": {
+          "accueil": 3.1,
+          "conseil": 2.3,
+          "delivrance": 2.1,
+          "confidentialite": 1.8,
+          "experience": 2.4
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-3",
+        "date": "2025-05-15",
+        "raison": "information",
+        "motifs": [
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 2.4,
+          "conseil": 2.3,
+          "delivrance": 2.3,
+          "confidentialite": 2.6,
+          "experience": 2.8
+        },
+        "recommande": "non",
+        "remarques": ""
+      },
+      {
+        "id": "victorhugo-5",
+        "date": "2025-04-09",
+        "raison": "information",
+        "motifs": [
+          "contraception",
+          "symptomes"
+        ],
+        "criteria": {
+          "accueil": 2.7,
+          "conseil": 2.1,
+          "delivrance": 2.2,
+          "confidentialite": 2.7,
+          "experience": 2.1
+        },
+        "recommande": "non",
+        "remarques": ""
+      }
+    ],
+    "average": 2.4
+  }
+]

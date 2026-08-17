@@ -75,7 +75,7 @@ class SiteHeader extends HTMLElement {
       </li>
       <li><a class="nav__link" href="https://www.helloasso.com/associations/planning-familial-isere/formulaires/2">Soutenir le Planning Familial</a></li>
     </ul>
-    <a class="nav__login" href="#login">Se connecter</a>
+    <a class="nav__login" href="${ROOT}admin.html">Se connecter</a>
     <button class="nav__burger" aria-label="Ouvrir le menu">
       <span></span><span></span><span></span>
     </button>

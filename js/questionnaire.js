@@ -11,6 +11,7 @@
 */
 
 const API_URL = "https://VOTRE-BACKEND.example/api/reponses";
+const FORM_LOADED_AT = Date.now();
 
 async function loadPharmacies(){
   const select = document.getElementById('pharmacie');
@@ -61,6 +62,10 @@ function serialize(form){
       payload[key] = [payload[key], value];
     }
   }
+  // Signaux anti-bot — le backend décide quoi en faire
+  payload.site_web = form.site_web.value; // honeypot : doit être vide
+  payload.temps_remplissage_ms = Date.now() - FORM_LOADED_AT;
+
   return payload;
 }
 

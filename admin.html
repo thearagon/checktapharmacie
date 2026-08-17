@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration — Planning Familial 38</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/layout.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="js/admin.js" defer></script>
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <article class="content" style="max-width:1100px;">
+
+    <!-- ============================================================
+         CONNEXION
+         ============================================================ -->
+    <div id="login-wrap" class="login-wrap">
+      <header class="content__intro" style="margin-bottom:2rem;">
+        <span class="content__eyebrow">Administration</span>
+        <h1 class="content__title" style="font-size:2rem;">Se <span class="chalk chalk--teal">connecter</span></h1>
+      </header>
+
+      <div id="login-error" class="login-error" role="alert" hidden></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-question">
+          <label class="form-question__label" for="email">E-mail</label>
+          <input class="form-input" type="email" id="email" name="email" required>
+        </div>
+        <div class="form-question">
+          <label class="form-question__label" for="password">Mot de passe</label>
+          <input class="form-input" type="password" id="password" name="password" required>
+        </div>
+        <button class="btn btn--ink btn--lg" type="submit" style="width:100%; justify-content:center;">
+          Se connecter
+        </button>
+      </form>
+    </div>
+
+    <!-- ============================================================
+         TABLEAU ADMIN (visible une fois connecté·e)
+         ============================================================ -->
+    <div id="admin-wrap" hidden>
+      <header class="content__intro" style="text-align:left; margin-bottom:1.5rem;">
+        <span class="content__eyebrow">Administration</span>
+        <h1 class="content__title" style="font-size:2rem;">La base de donnée des <span class="chalk chalk--teal">pharmacies</span></h1>
+      </header>
+
+      <div class="admin-toolbar">
+        <div class="admin-toolbar__filters">
+          <div>
+            <label for="filtre-note">Note</label>
+            <select class="form-select" id="filtre-note">
+              <option value="">Toutes</option>
+              <option value="sous3">En dessous de 3/5</option>
+              <option value="sup3">3/5 et plus</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filtre-critere">Critère</label>
+            <select class="form-select" id="filtre-critere">
+              <option value="">Note globale</option>
+              <option value="accueil">Accueil</option>
+              <option value="conseil">Conseil et orientation</option>
+              <option value="delivrance">Délivrance</option>
+              <option value="confidentialite">Confidentialité</option>
+              <option value="experience">Expérience positive</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filtre-raison">Type de la visite</label>
+            <select class="form-select" id="filtre-raison">
+              <option value="">Toutes</option>
+              <option value="information">Information</option>
+              <option value="delivrance">Délivrance</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filtre-motif">Raison</label>
+            <select class="form-select" id="filtre-motif">
+              <option value="">Toutes</option>
+              <option value="preservatif">Préservatif (interne et externe)</option>
+              <option value="contraception">Contraception</option>
+              <option value="contraception_urgence">Contraception d'urgence</option>
+              <option value="grossesse">Grossesse et diagnostic de grossesse</option>
+              <option value="ivg">IVG (interruption volontaire de grossesse)</option>
+              <option value="protections_reutilisables">Protections hygiéniques réutilisables</option>
+              <option value="violences">Violences conjugales / sexistes et sexuelles</option>
+              <option value="symptomes">Symptômes, gênes des organes génitaux</option>
+              <option value="vaccin">Vaccin lié à la santé sexuelle</option>
+              <option value="transition_hormonale">Traitement de transition hormonale</option>
+              <option value="don_ovocyte">Don d'ovocyte</option>
+              <option value="trouble_psy">Trouble psychologique lié à la santé sexuelle</option>
+              <option value="autre">Autre traitement ou demande médicale</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filtre-badge">Badge</label>
+            <select class="form-select" id="filtre-badge">
+              <option value="">Tous</option>
+              <option value="liste_noire">Liste noire</option>
+              <option value="carton_rouge">Carton rouge</option>
+              <option value="contactee">Contactée</option>
+              <option value="a_tester">À tester</option>
+              <option value="aucun">Sans badge</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button id="admin-map-toggle" class="admin-map-toggle" type="button" style="margin-bottom:1rem;">
+        Afficher la carte ▾
+      </button>
+      <div id="admin-map-wrap" class="admin-map-wrap map-wrap" hidden>
+        <div id="map"></div>
+      </div>
+      <p id="admin-map-hint" class="pharmacy-list__hint" hidden>
+        La liste ci-dessous ne montre que les pharmacies visibles dans le cadrage actuel de la carte.
+      </p>
+
+      <div style="overflow-x:auto;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th data-sortable="name">Pharmacie <span class="sort-arrow">↑</span></th>
+              <th data-sortable="average">Note <span class="sort-arrow"></span></th>
+              <th>Badges</th>
+              <th>Fiche complète</th>
+              <th>Commentaire</th>
+            </tr>
+          </thead>
+          <tbody id="admin-tbody">
+            <tr><td colspan="5" class="admin-table__empty">Chargement…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<site-footer></site-footer>
+
+</body>
+</html>

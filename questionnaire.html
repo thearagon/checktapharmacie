@@ -250,6 +250,10 @@
             <textarea class="form-textarea" id="discrimination" name="discrimination" rows="3"></textarea>
           </div>
         </div>
+        
+        <!-- Piège à bots — invisible pour un humain, ne pas retirer -->
+      <input type="text" name="site_web" id="site_web" autocomplete="off" tabindex="-1"
+       style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" aria-hidden="true">
 
         <div id="form-send-error" class="form-error" role="alert" hidden>
           L'envoi a échoué. Vérifie ta connexion et réessaie — tes réponses sont toujours dans le formulaire.
