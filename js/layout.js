@@ -140,16 +140,16 @@ class SiteFooter extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
 <ul class="footer__list">
-    <li><a class="footer__link" href="/ressources/pourquoi.html">Pourquoi cet annuaire ?</a></li>
-    <li><a class="footer__link" href="/ressources/contact.html">Contact</a></li>
+    <li><a class="footer__link" href="${RES}pourquoi.html">Pourquoi cet annuaire ?</a></li>
+    <li><a class="footer__link" href="${RES}contact.html">Contact</a></li>
     <li>
       <a class="footer__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#icon-instagram"></use></svg>
+        <svg class="icon" aria-hidden="true"><use href="${ROOT}assets/icons/sprite.svg#icon-instagram"></use></svg>
       </a>
     </li>
     <li>
       <a class="footer__link" href="https://www.planning-familial.org/fr/leplanning38" target="_blank" rel="noopener" aria-label="Planning Familial">
-        <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#icon-bullseye"></use></svg>
+        <svg class="icon" aria-hidden="true"><use href="${ROOT}assets/icons/sprite.svg#icon-bullseye"></use></svg>
       </a>
     </li>
   </ul>
