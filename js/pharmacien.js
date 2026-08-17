@@ -14,7 +14,7 @@ const API_URL = "https://VOTRE-BACKEND.example/api/retraits";
 async function loadPharmacies(){
   const select = document.getElementById('pharmacie-retrait');
   try{
-    const res = await fetch('assets/data/annuaire.json');
+    const res = await fetch('../assets/data/annuaire.json');
     const pharmacies = await res.json();
     pharmacies
       .sort((a, b) => a.name.localeCompare(b.name, 'fr'))
