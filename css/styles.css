@@ -517,23 +517,6 @@ site-footer{
 }
 
 /* ============================================================
-   9. RESPONSIVE
-   ============================================================ */
-
-/*@media (max-width: 880px){
-  site-header{ padding: 0 var(--gap-sm); }
-  .logo--secondary{ display:none; }
-  .nav__list, .nav__login{ display:none; }
-  .nav__burger{ display:block; }
-  .hero{ padding: var(--gap-lg) var(--gap-sm); }
-  .section--ink{ padding: var(--gap-lg) var(--gap-sm); }
-  site-footer{ padding: var(--gap-md) var(--gap-sm); }
-  .footer__list{ flex-wrap:wrap; justify-content:center; row-gap: var(--gap-xs); }
-  .scale{ flex-direction: column; align-items: flex-start; gap: .4rem; }
-  .scale__end{ max-width: none; }
-  .scale__end--right{ text-align: left; }
-}*/
-/* ============================================================
    10. FORMULAIRE — composants réutilisables
    (questionnaire, futur formulaire de contact, etc.)
    ============================================================ */
@@ -817,11 +800,45 @@ site-footer{
 /* ============================================================
    13. RESPONSIVE
    ============================================================ */
+
 @media (max-width: 880px){
   site-header{ padding: 0 var(--gap-sm); }
   .logo--secondary{ display:none; }
-  .nav__list, .nav__login{ display:none; }
-  .nav__burger{ display:block; }
+  .nav__list{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 0;
+  background: var(--page-bg);
+  border-bottom: 2px solid var(--ink);
+  padding: var(--gap-sm);
+  z-index: 999;
+  }
+  .nav__dropdown{
+  position: static;
+  transform: none;
+  border: none;
+  background: transparent;
+  padding-left: var(--gap-sm);
+  margin-top: .3rem;
+  min-width: 0;
+}
+  .nav__list li{ width: 100%; }
+  .nav__link{ display: block; padding: .9em .5em; }
+
+  .nav__login{
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    right: var(--gap-sm);
+    z-index: 1000;
+  }
+  .nav.is-open .nav__list{ display: flex; }
+  .nav.is-open .nav__login{ display: inline-flex; }
+    .nav__burger{ display:block; }
   .hero{ padding: var(--gap-lg) var(--gap-sm); }
   .section--ink{ padding: var(--gap-lg) var(--gap-sm); }
   site-footer{ padding: var(--gap-md) var(--gap-sm); }

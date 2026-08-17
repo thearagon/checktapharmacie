@@ -123,17 +123,13 @@ class SiteHeader extends HTMLElement {
     });
   }
 
-  _wireBurger(){
-    const burger = this.querySelector('.nav__burger');
-    const navList = this.querySelector('.nav__list');
-    const navLogin = this.querySelector('.nav__login');
-    burger.addEventListener('click', () => {
-      const open = navList.style.display === 'flex';
-      navList.style.display = open ? 'none' : 'flex';
-      navList.style.flexDirection = 'column';
-      navLogin.style.display = open ? 'none' : 'inline-flex';
-    });
-  }
+_wireBurger(){
+  const nav = this.querySelector('.nav');
+  const burger = this.querySelector('.nav__burger');
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('is-open');
+  });
+}
 }
 
 class SiteFooter extends HTMLElement {
