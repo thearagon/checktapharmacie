@@ -695,7 +695,7 @@ site-footer{
   overflow: hidden;
   margin-bottom: var(--gap-lg);
 }
-#map{ height: 420px; width: 100%; background: var(--cream-soft); }
+#map{ height: 470px; width: 100%; background: var(--cream-soft); }
 
 .pharmacy-marker{
   display:flex; align-items:center; justify-content:center;
