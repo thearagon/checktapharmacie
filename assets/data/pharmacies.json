@@ -1,0 +1,7 @@
+[
+  { "name": "Pharmacie du Centre", "address": "12 place Grenette, 38000 Grenoble" },
+  { "name": "Pharmacie de la Gare", "address": "5 rue Émile Zola, 38000 Grenoble" },
+  { "name": "Pharmacie du Vercors", "address": "8 avenue de la République, 38130 Échirolles" },
+  { "name": "Pharmacie des Alpes", "address": "22 rue de la Liberté, 38400 Saint-Martin-d'Hères" },
+  { "name": "Pharmacie du Marché", "address": "3 place du Marché, 38100 Grenoble" }
+]
