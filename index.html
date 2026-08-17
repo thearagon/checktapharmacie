@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check ta pharmacie — Planning Familial 38</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/layout.js" defer></script>
+</head>
+<body>
+
+<!-- ============================================================
+     BANDEAU SUPÉRIEUR
+     ============================================================ -->
+<site-header></site-header>
+
+<!-- ============================================================
+     PAGE D'ACCUEIL
+     ============================================================ -->
+<main id="accueil">
+  <section class="hero">
+    <h1 class="hero__title">Check ta <span class="chalk chalk--violet">pharmacie</span></h1>
+    <p class="hero__subtitle">Un annuaire positif et participatif des pharmacies de l'Isère et au delà, par le Planning Familial 38</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--ink" href="#recommander.html">
+        <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-heart"></use></svg>
+        Recommander une pharmacie
+      </a>
+      <a class="btn btn--ink" href="#trouver.html">
+        <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-pin"></use></svg>
+        Trouver une pharmacie
+      </a>
+    </div>
+
+    <span class="scroll-cue">
+      Découvrir le projet
+      <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+    </span>
+  </section>
+
+  <!-- ============================================================
+       SECTION RÉVÉLÉE — fond ink / texte crème
+       Démontre le composant .bloc réutilisable (icône + titre + texte + lien)
+       ============================================================ -->
+  <section class="section--ink" id="pourquoi">
+    <div class="section__head">
+      <span class="section__eyebrow">Pourquoi cet annuaire?</span>
+      <h2 class="section__title">Pour se sentir écouté·e, informé·e et bien traité·e</h2>
+      <p> pour des délivrances et conseils relevant de la santé sexuelle. </p>
+    </div>
+
+    <div class="blocs">
+          <article class="bloc">
+        <span class="bloc__icon" aria-hidden="true">
+          <svg class="icon"><use href="assets/icons/sprite.svg#icon-users"></use></svg>
+        </span>
+        <h3 class="bloc__title">Un outil construit collectivement</h3>
+        <p class="bloc__text">Chaque recommandation vient d'un témoignage. Des inexactitudes, différences de point de vue et d’expériences sont possibles.
+</p>
+        <a class="bloc__link" href="/recommander.html">Participer →</a>
+      </article>
+      
+      <article class="bloc">
+        <span class="bloc__icon" aria-hidden="true">
+          <svg class="icon"><use href="assets/icons/sprite.svg#icon-shield"></use></svg>
+        </span>
+        <h3 class="bloc__title">Un annuaire positif</h3>
+        <p class="bloc__text">Nous n’intégrons que les coordonnées de pharmacies nous ayant été recommandées sur des critères positifs.</p>
+        <a class="bloc__link" href="/ressources/criteres.html">Voir les critères de l'annuaire →</a>
+      </article>
+
+      <article class="bloc">
+        <span class="bloc__icon" aria-hidden="true">
+          <svg class="icon"><use href="assets/icons/sprite.svg#icon-shield"></use></svg>
+        </span>
+        <h3 class="bloc__title">???</h3>
+        <p class="bloc__text">?.</p>
+        <a class="bloc__link" href="/ressources/droits.html">Connaître mes droits →</a>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     BANDEAU INFÉRIEUR
+     ============================================================ -->
+<site-footer></site-footer>
+
+
+</body>
+</html>

@@ -1,0 +1,836 @@
+/* ============================================================
+   1. TOKENS — variables de design (couleurs, typo, espacements)
+   ============================================================ */
+:root{
+  /* couleurs */
+  --violet: #7f4a94;
+  --violet-dark: #5f3670;
+  --teal: #009b87;
+  --ink: #2f2d4c;
+  --cream: #f9efe5;
+  --cream-soft: #f3e4d4;
+
+  /* couleurs de page par défaut (adaptables par section) */
+  --page-bg: var(--cream);
+  --page-fg: var(--ink);
+
+  /* typo */
+  --font-body: 'Roboto', sans-serif;
+  --font-title: 'Roboto Condensed', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  /* rythme */
+  --gap-xs: .5rem;
+  --gap-sm: 1rem;
+  --gap-md: 2rem;
+  --gap-lg: 4rem;
+  --gap-xl: 7rem;
+
+  --header-h: 84px;
+}
+
+*{ box-sizing: border-box; }
+site-header, site-footer{ display: block; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  background: var(--page-bg);
+  color: var(--page-fg);
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+h1,h2,h3{
+  font-family: var(--font-title);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: .01em;
+}
+p{ margin:0; line-height: 1.6; }
+:focus-visible{ outline: 3px solid var(--teal); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ============================================================
+   2. ICÔNES — sprite externe (assets/icons/sprite.svg)
+   Toute icône affichée via <svg class="icon"><use href="..."/></svg>
+   hérite automatiquement de la couleur du texte (currentColor).
+   Pour changer une icône : éditer assets/icons/sprite.svg, rien
+   à toucher ici.
+   ============================================================ */
+.icon{
+  display:inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   3. SIGNATURE — effet "craie" (chalk)
+   Le trait de surlignage vient d'un fichier SVG externe
+   (assets/graphics/chalk-*.svg). Pour changer la forme du trait,
+   éditer ces fichiers — la classe CSS n'a rien à changer.
+   ============================================================ */
+.chalk{
+  position: relative;
+  display: inline-block;
+  font-weight: 300;
+  font-style: italic;
+  padding: 0 .28em;
+  z-index: 0;
+}
+.chalk::before{
+  content:"";
+  position:absolute;
+  top: 50%;
+  height: 1.15em;
+  transform: translateY(-52%);
+  right: -4%;
+  width: 108%;
+  max-width: 4.6em;
+  z-index:-1;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+.chalk--violet::before{ background-image: url("/assets/graphics/chalk-violet.svg"); }
+.chalk--teal::before{   background-image: url("/assets/graphics/chalk-teal.svg"); }
+.chalk--ink::before{    background-image: url("/assets/graphics/chalk-ink.svg"); }
+.chalk--dark-cream::before{    background-image: url("/assets/graphics/chalk-dark-cream.svg"); }
+
+.chalk--onviolet{
+  color: #f9efe5;
+  font-weight: 500;
+  font-style: normal;
+}
+.chalk--onviolet::before{
+  background-image: url("/assets/graphics/chalk-violet.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  top: 50%;
+  height: 1.15em;
+  transform: translateY(-52%);
+  right: -4%;
+  width: 108%;
+  max-width: none;
+}
+/* ============================================================
+   4. BANDEAU SUPÉRIEUR
+   ============================================================ */
+site-header{
+  position: sticky;
+  top:0;
+  z-index: 1000;
+  height: var(--header-h);
+  background: var(--page-bg);
+  color: var(--page-fg);
+  border-bottom: 2px solid currentColor;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 0 var(--gap-lg);
+  transition: background .3s ease, color .3s ease;
+}
+.header__logos{
+  display:flex;
+  align-items:center;
+  gap: var(--gap-md);
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-family: var(--font-title);
+  font-weight:700;
+  font-size: 1.15rem;
+}
+.logo img{
+  height:50px;
+}
+.logo--secondary{ opacity:.5; font-size:.95rem; }
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap: var(--gap-md);
+}
+.nav__list{
+  list-style:none;
+  display:flex;
+  gap: var(--gap-md);
+  margin:0; padding:0;
+}
+.nav__link{
+  font-size:.95rem;
+  font-weight:500;
+  padding:.4em .2em;
+  position:relative;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+}
+.nav__link[aria-current="page"] .chalk{ padding:.15em .5em; }
+.nav__link .icon{ width:12px; height:12px; margin-left:4px; }
+
+.nav__item--dropdown{ position:relative; }
+.nav__dropdown{
+  list-style:none;
+  margin:0; padding:.6rem;
+  position:absolute;
+  top: 100%;
+  left:50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  color: var(--ink);
+  border:2px solid var(--ink);
+  border-radius: 4px;
+  min-width: 240px;
+  display:none;
+  flex-direction:column;
+  gap:.15rem;
+}
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown:focus-within .nav__dropdown{ display:flex; }
+.nav__dropdown a{
+  display:block;
+  padding:.5rem .7rem;
+  font-size:.9rem;
+  border-radius:3px;
+}
+.nav__dropdown a:hover{ background: var(--cream-soft); }
+.nav__dropdown .nav__sublabel{
+  font-family: var(--font-mono);
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  opacity:.55;
+  padding:.5rem .7rem 0;
+}
+
+.nav__login{
+  font-family: var(--font-mono);
+  font-size:.82rem;
+  border:1.5px solid currentColor;
+  padding:.45em 1em;
+  border-radius: 3px;
+}
+.nav__login:hover{ background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.nav__burger{ display:none; background:none; border:none; cursor:pointer; padding:.5rem; }
+.nav__burger span{ display:block; width:24px; height:2px; background: currentColor; margin:5px 0; }
+
+/* ============================================================
+   5. PAGE D'ACCUEIL — hero minimaliste
+   ============================================================ */
+.hero{
+  min-height: calc(100vh - var(--header-h));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: var(--gap-xl) var(--gap-md);
+  gap: var(--gap-md);
+}
+.hero__title{
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height:1.05;
+  max-width: 16ch;
+}
+.hero__subtitle{
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  max-width: 46ch;
+  color: var(--ink);
+  opacity:.8;
+}
+.hero__actions{
+  display:flex;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-sm);
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+/* Bouton — bloc réutilisable */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  font-family: var(--font-body);
+  font-weight:500;
+  font-size:1rem;
+  padding: 1em 1.6em;
+  border-radius: 4px;
+  border:2px solid transparent;
+  cursor:pointer;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn .icon{ width:22px; height:22px; }
+.btn--ink{ background: var(--ink); color: var(--cream); }
+.btn--ink:hover{ opacity:.9; }
+.btn--outline{ background:transparent; border-color: var(--ink); color: var(--ink); }
+
+.scroll-cue{
+  font-family: var(--font-mono);
+  font-size:.75rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.6;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.4rem;
+}
+.scroll-cue .icon{ width:16px; height:16px; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+
+/* ============================================================
+   6. SECTION SOMBRE — révélée au scroll (fond ink, texte crème)
+   ============================================================ */
+.section--ink{
+  --page-bg: var(--ink);
+  --page-fg: var(--cream);
+  background: var(--ink);
+  color: var(--cream);
+  padding: var(--gap-xl) var(--gap-lg);
+}
+.section__head{
+  max-width: 60ch;
+  margin: 0 auto var(--gap-lg);
+  text-align:center;
+}
+.section__eyebrow{
+  font-family: var(--font-mono);
+  font-size:.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color: var(--teal);
+  display:block;
+  margin-bottom: var(--gap-xs);
+}
+.section__title{ font-size: clamp(1.8rem, 3vw, 2.6rem); }
+
+/* Bloc — composant réutilisable partout : icône + titre + texte + lien */
+.blocs{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gap-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.bloc{
+  display:flex;
+  flex-direction:column;
+  gap: var(--gap-xs);
+  padding: var(--gap-md);
+  border: 1.5px solid rgba(249,239,229,.25);
+  border-radius: 6px;
+}
+.bloc__icon{
+  width:40px; height:40px;
+  border-radius:50%;
+  background: var(--teal);
+  color: var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:.3rem;
+}
+.bloc__icon .icon{ width:20px; height:20px; }
+.bloc__title{ font-family: var(--font-title); font-size:1.15rem; font-weight:700; }
+.bloc__text{ font-size:.95rem; opacity:.85; }
+.bloc__link{
+  margin-top:.4rem;
+  font-family: var(--font-mono);
+  font-size:.82rem;
+  color: var(--teal);
+  display:inline-flex;
+  align-items:center;
+  gap:.3rem;
+}
+
+/* ============================================================
+   7. BANDEAU INFÉRIEUR
+   ============================================================ */
+site-footer{
+  background: var(--page-bg);
+  color: var(--page-fg);
+  border-top: 2px solid currentColor;
+  padding: var(--gap-md) var(--gap-lg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap: 0;
+}
+.footer__list{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  margin:0; padding:0;
+}
+.footer__list li{
+  display:flex;
+  align-items:center;
+}
+.footer__list li:not(:last-child)::after{
+  content:"";
+  width:1.5px;
+  height:1.1em;
+  background: currentColor;
+  opacity:.35;
+  margin: 0 var(--gap-sm);
+}
+.footer__link{
+  font-size:.85rem;
+  font-family: var(--font-mono);
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.footer__link .icon{ width:18px; height:18px; }
+.footer__link:hover{ opacity:.7; }
+
+/* ============================================================
+   8. PAGE TEXTE — page d'intro avant un lien (ex: Recommander une
+   pharmacie). Réutilisable pour toute page "texte + bouton"
+   (Ressources, Que faire en cas d'abus, etc.)
+   ============================================================ */
+.content{
+  max-width: 680px;
+  margin: 0 auto;
+  padding: var(--gap-xl) var(--gap-md) var(--gap-lg);
+}
+.content__title{
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: var(--gap-sm);
+}
+.content__lead{
+  font-size: 1.1rem;
+  opacity: .85;
+  margin-bottom: var(--gap-xs);
+}
+.content p{
+  margin-bottom: var(--gap-sm);
+}
+.content__notice{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--violet);
+  display: block;
+  margin: var(--gap-md) 0 var(--gap-xs);
+}
+.content ul{
+  list-style: none;
+  margin: 0 0 var(--gap-md);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+.content li{
+  position: relative;
+  padding-left: 1.4em;
+  line-height: 1.6;
+}
+.content li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .5em;
+  width: .5em;
+  height: .5em;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.content strong{ font-weight: 700; }
+.content a{
+  color: var(--violet);
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+.content a:hover{ color: var(--violet-dark); }
+.content__cta{
+  margin-top: var(--gap-lg);
+  text-align: center;
+}
+
+.content__eyebrow{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: var(--gap-xs);
+}
+.content__intro{
+  text-align: left;
+  margin-bottom: var(--gap-lg);
+}
+.content__meta{
+  list-style: none;
+  display: flex;
+  gap: .6rem;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: var(--gap-sm) 0 0;
+  padding: 0;
+}
+.content__meta li{
+  display: flex;
+  align-items: left;
+  gap: .4rem;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  padding: .45em 1em;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+}
+.content__meta .icon{ width: 14px; height: 14px; }
+
+.content__callout{
+  background: rgba(127,74,148,.08);
+  border: 1.5px solid var(--violet);
+  border-radius: 6px;
+  padding: var(--gap-sm);
+  margin: 0 0 var(--gap-lg);
+}
+.content__callout p{ font-size: .92rem; opacity: .75; }
+.content__callout strong{ color: var(--violet); }
+
+.btn--lg{
+  font-size: 1.05rem;
+  padding: 1.1em 2.2em;
+}
+.content__cta-note{
+  margin-top: .9rem;
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  opacity: .55;
+}
+
+/* ============================================================
+   9. RESPONSIVE
+   ============================================================ */
+
+/*@media (max-width: 880px){
+  site-header{ padding: 0 var(--gap-sm); }
+  .logo--secondary{ display:none; }
+  .nav__list, .nav__login{ display:none; }
+  .nav__burger{ display:block; }
+  .hero{ padding: var(--gap-lg) var(--gap-sm); }
+  .section--ink{ padding: var(--gap-lg) var(--gap-sm); }
+  site-footer{ padding: var(--gap-md) var(--gap-sm); }
+  .footer__list{ flex-wrap:wrap; justify-content:center; row-gap: var(--gap-xs); }
+  .scale{ flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .scale__end{ max-width: none; }
+  .scale__end--right{ text-align: left; }
+}*/
+/* ============================================================
+   10. FORMULAIRE — composants réutilisables
+   (questionnaire, futur formulaire de contact, etc.)
+   ============================================================ */
+.form-error{
+  background: rgba(127,74,148,.1);
+  border: 1.5px solid var(--violet);
+  border-radius: 6px;
+  padding: 1em 1.3em;
+  font-size: .9rem;
+  margin-bottom: var(--gap-lg);
+}
+.form-section{ margin-bottom: var(--gap-xl); }
+.form-section__title{
+  font-size: 1.3rem;
+  margin-bottom: var(--gap-xs);
+}
+.form-section__hint{
+  font-size: .92rem;
+  opacity: .65;
+  margin-bottom: var(--gap-md);
+}
+.form-question{ margin-bottom: var(--gap-lg); }
+.form-question__label{
+  display: block;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: .7rem;
+}
+.form-question__label .required{ color: var(--violet); margin-left: .2em; }
+.form-question__desc{ font-size: .92rem; margin: -.3rem 0 .7rem; font-weight: 400; font-family: var(--font-body); }
+
+.form-input, .form-select, .form-textarea{
+  width: 100%;
+  padding: .8em 1em;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: var(--cream);
+  color: var(--ink);
+}
+.form-select{
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f2d4c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1em center;
+  background-size: 18px;
+  padding-right: 2.6em;
+}
+.form-textarea{ resize: vertical; min-height: 6em; font-family: var(--font-body); }
+
+/* Groupe de choix uniques en "pilules" (raison de la visite, recommandation) */
+.choice-group{ display: flex; flex-wrap: wrap; gap: .6rem; }
+.choice-group input{ position: absolute; opacity: 0; pointer-events: none; }
+.choice-group label{
+  cursor: pointer;
+  padding: .7em 1.3em;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: .92rem;
+  transition: background .15s ease, color .15s ease;
+}
+.choice-group input:checked + label{ background: var(--ink); color: var(--cream); }
+.choice-group input:focus-visible + label{ outline: 3px solid var(--teal); outline-offset: 2px; }
+
+/* Grille de cases à cocher (question "Pour") */
+.checkbox-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .3rem .8rem;
+}
+.checkbox-grid label{
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .92rem;
+  cursor: pointer;
+  padding: .55em .6em;
+  border-radius: 4px;
+}
+.checkbox-grid label:hover{ background: var(--cream-soft); }
+.checkbox-grid input[type="checkbox"]{
+  margin-top: .2em;
+  width: 18px; height: 18px;
+  accent-color: var(--teal);
+  flex-shrink: 0;
+}
+.form-question__reveal{ margin-top: .6rem; }
+.form-question__reveal[hidden]{ display: none; }
+
+/* Échelle graduée colorée (accord/désaccord) */
+.scale{ display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.scale__end{
+  font-family: var(--font-mono);
+  font-size: .86rem;
+  opacity: .65;
+  max-width: 130px;
+}
+.scale__end--right{ text-align: right; }
+.scale__options{ display: flex; gap: .5rem; }
+.scale__options input{ position: absolute; opacity: 0; }
+.scale__options label{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .86rem;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.scale__options .scale__opt--1 label{ background: #efe3f2; }
+.scale__options .scale__opt--2 label{ background: #ddc9e6; }
+.scale__options .scale__opt--3 label{ background: var(--cream-soft); }
+.scale__options .scale__opt--4 label{ background: #bfe3dd; }
+.scale__options .scale__opt--5 label{ background: #8fd0c6; }
+.scale__options input:checked + label{
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  transform: scale(1.08);
+}
+
+/* Confirmation en fin de formulaire */
+.form-confirmation{ text-align: center; padding: var(--gap-xl) var(--gap-md); }
+.form-confirmation .icon{ width: 48px; height: 48px; color: var(--teal); margin-bottom: var(--gap-sm); }
+
+/* ============================================================
+   12. ANNUAIRE / CARTE
+   ============================================================ */
+/* Leaflet affiche ses tuiles comme des <img> classiques — la règle
+   globale "img{max-width:100%}" plus haut les casse. On l'annule
+   uniquement à l'intérieur de la carte. */
+.leaflet-container img{ max-width: none; }
+
+.map-filter{  display:flex;
+  align-items:flex-end;
+  gap: var(--gap-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--gap-md);
+}
+.map-filter label{
+  display:block;
+  font-family: var(--font-mono);
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  opacity:.7;
+  margin-bottom: .35rem;
+}
+.map-filter select{ max-width: 260px; }
+
+.map-wrap{
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: var(--gap-lg);
+}
+#map{ height: 420px; width: 100%; background: var(--cream-soft); }
+
+.pharmacy-marker{
+  display:flex; align-items:center; justify-content:center;
+  filter: drop-shadow(0 2px 3px rgba(47,45,76,.35));
+}
+
+/* Liste des pharmacies visibles sur la carte */
+.pharmacy-list{
+  display:flex;
+  flex-direction:column;
+  gap: .6rem;
+}
+.pharmacy-list__empty{
+  font-size:.9rem;
+  opacity:.6;
+  padding: var(--gap-md) 0;
+  text-align:center;
+}
+.pharmacy-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--gap-sm);
+  padding: .9rem 1.1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+}
+.pharmacy-card:hover, .pharmacy-card:focus-visible{
+  background: var(--cream-soft);
+  transform: translateX(2px);
+}
+.pharmacy-list__hint{
+  font-size: .78rem;
+  opacity: .6;
+  margin: -.3rem 0 .8rem;
+}
+.pharmacy-list__critere-active{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--violet);
+  margin: -.3rem 0 .8rem;
+}
+.pharmacy-card__name{ font-family: var(--font-title); font-weight:700; font-size:1rem; margin:0; }
+.pharmacy-card__address{ font-size:.82rem; opacity:.65; margin: .15rem 0 0; }
+.pharmacy-card__score{
+  flex-shrink:0;
+  width:44px; height:44px;
+  border-radius:50%;
+  border: 2.5px solid currentColor;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono);
+  font-weight:500;
+  font-size:.95rem;
+}
+
+/* Barre de notation type colormap avec pointeur */
+.rating-bar{
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  margin: .35rem 0 .1rem;
+}
+.rating-bar__track{
+  position:absolute; inset:0;
+  border-radius:999px;
+  opacity: .3;
+}
+.rating-bar--criteria .rating-bar__track{ background: linear-gradient(to right, #c85a50, #5c9c6c); }
+.rating-bar--average .rating-bar__track{ background: linear-gradient(to right, #d48c40, #5c9c6c); }
+.rating-bar__pointer{
+  position:absolute; top:50%;
+  width:16px; height:16px;
+  border-radius:50%;
+  border: 2px solid var(--cream);
+  box-shadow: 0 0 0 1px rgba(47,45,76,.25);
+  transform: translate(-50%,-50%);
+}
+.rating-bar--lg{ height: 12px; }
+.rating-bar--lg .rating-bar__pointer{ width:20px; height:20px; }
+
+/* Contenu de la popup Leaflet (pharmacie sélectionnée) */
+.pharmacy-popup{ font-family: var(--font-body); color: var(--ink); min-width: 220px; }
+.pharmacy-popup__name{ font-family: var(--font-title); font-weight:700; font-size:1.1rem; margin:0; }
+.pharmacy-popup__address{ font-size:.75rem; color:#8a8598; margin:.15rem 0 .7rem; }
+.pharmacy-popup__score{
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight:500;
+  line-height:1;
+}
+.pharmacy-popup__score span{ font-size:1rem; opacity:.6; }
+.pharmacy-popup__criteria{ margin-top: .9rem; display:flex; flex-direction:column; gap:.5rem; }
+.pharmacy-popup__criterion-head{
+  display:flex; justify-content:space-between;
+  font-size:.8rem;
+}
+.pharmacy-popup__criterion-head strong{ font-family: var(--font-mono); font-weight:500; }
+.pharmacy-popup__meta{
+  margin-top:.8rem;
+  display:flex; flex-direction:column; gap:.3rem;
+}
+.badge{
+  display:inline-flex;
+  align-self:flex-start;
+  font-family: var(--font-mono);
+  font-size:.7rem;
+  padding: .25em .7em;
+  border-radius:999px;
+  border: 1px solid var(--ink);
+  opacity:.75;
+}
+.badge--warn{
+  border-color: var(--violet);
+  background: rgba(127,74,148,.1);
+  color: var(--violet-dark);
+  opacity:1;
+}
+/* Surcharge Leaflet pour coller au design (fond crème, coins doux) */
+.leaflet-popup-content-wrapper{ background: var(--cream); border-radius: 8px; }
+.leaflet-popup-tip{ background: var(--cream); }
+
+/* ============================================================
+   13. RESPONSIVE
+   ============================================================ */
+@media (max-width: 880px){
+  site-header{ padding: 0 var(--gap-sm); }
+  .logo--secondary{ display:none; }
+  .nav__list, .nav__login{ display:none; }
+  .nav__burger{ display:block; }
+  .hero{ padding: var(--gap-lg) var(--gap-sm); }
+  .section--ink{ padding: var(--gap-lg) var(--gap-sm); }
+  site-footer{ padding: var(--gap-md) var(--gap-sm); }
+  .footer__list{ flex-wrap:wrap; justify-content:center; row-gap: var(--gap-xs); }
+  .scale{ flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .scale__end{ max-width: none; }
+  .scale__end--right{ text-align: left; }
+  #map{ height: 320px; }
+  .pharmacy-card{ flex-wrap: wrap; }
+  .map-filter{ flex-direction: column; align-items: stretch; gap: var(--gap-sm); }
+  .map-filter select{ max-width: none; width: 100%; }
+}

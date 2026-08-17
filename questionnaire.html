@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionnaire — Recommander une pharmacie — Planning Familial 38</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/layout.js" defer></script>
+<script src="/js/questionnaire.js" defer></script>
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <article class="content" style="max-width:760px;">
+
+    <header class="content__intro">
+      <span class="section__eyebrow">Questionnaire anonyme</span>
+      <h1 class="content__title">Recommander une <span class="chalk chalk--teal">pharmacie</span></h1>
+      <p class="content__lead">Toutes les questions sont sur cette page. Les champs marqués <span style="color:var(--violet)">*</span> sont obligatoires.</p>
+    </header>
+
+    <div id="form-error" class="form-error" role="alert" hidden>
+      Merci de compléter toutes les questions obligatoires (*) avant d'envoyer le questionnaire.
+    </div>
+
+    <div id="questionnaire-form-wrapper">
+      <form id="questionnaire-form" novalidate>
+
+        <!-- ============================================================
+             PHARMACIE
+             ============================================================ -->
+        <div class="form-question">
+          <label class="form-question__label" for="pharmacie">
+            Au cours de l'année passée, tu t'es rendu·e dans une pharmacie du département de l'Isère (38), laquelle&nbsp;?
+            <span class="required">*</span>
+          </label>
+          <select class="form-select" id="pharmacie" name="pharmacie">
+            <option value="">— Choisir une pharmacie —</option>
+            <!-- Options ajoutées automatiquement depuis assets/data/pharmacies.json -->
+          </select>
+        </div>
+
+        <!-- ============================================================
+             RAISON DE LA VISITE
+             ============================================================ -->
+        <div class="form-question">
+          <span class="form-question__label">Quelle a été la raison de ta visite en pharmacie&nbsp;? <span class="required">*</span></span>
+          <div class="choice-group">
+            <input type="radio" id="raison-information" name="raison" value="information">
+            <label for="raison-information">Information</label>
+            <input type="radio" id="raison-delivrance" name="raison" value="delivrance">
+            <label for="raison-delivrance">Délivrance</label>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             POUR (motifs, choix multiple)
+             ============================================================ -->
+        <div class="form-question">
+          <span class="form-question__label">Pour&nbsp;: <span class="required">*</span></span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="pour" value="preservatif"> Préservatif (interne et externe)</label>
+            <label><input type="checkbox" name="pour" value="contraception"> Contraception</label>
+            <label><input type="checkbox" name="pour" value="contraception_urgence"> Contraception d'urgence</label>
+            <label><input type="checkbox" name="pour" value="grossesse"> Grossesse et diagnostic de grossesse</label>
+            <label><input type="checkbox" name="pour" value="ivg"> IVG (interruption volontaire de grossesse)</label>
+            <label><input type="checkbox" name="pour" value="protections_reutilisables"> Protections hygiéniques réutilisables</label>
+            <label><input type="checkbox" name="pour" value="violences"> Violences conjugales / sexistes et sexuelles</label>
+            <label><input type="checkbox" name="pour" value="symptomes"> Symptômes, gênes des organes génitaux (par exemple, mycose)</label>
+            <label><input type="checkbox" name="pour" value="vaccin"> Vaccin lié à la santé sexuelle (Hépatite B, Papillomavirus, Hépatite A)</label>
+            <label><input type="checkbox" name="pour" value="transition_hormonale"> Traitement de transition hormonale</label>
+            <label><input type="checkbox" name="pour" value="don_ovocyte"> Don d'ovocyte</label>
+            <label><input type="checkbox" name="pour" value="trouble_psy"> Trouble psychologique lié à la santé sexuelle</label>
+            <label><input type="checkbox" name="pour" value="autre"> Autre traitement ou demande médicale (préciser ci-dessous)</label>
+          </div>
+          <div class="form-question__reveal" id="pour-autre-champ" hidden>
+            <input class="form-input" type="text" name="pour_autre_texte" placeholder="Précise ici">
+          </div>
+        </div>
+
+        <!-- ============================================================
+             ÉCHELLE — issue de la visite
+             ============================================================ -->
+        <div class="form-section">
+          <h2 class="form-section__title">Quelle a été l'issue de la visite&nbsp;?</h2>
+          <p class="form-section__hint">À quel point es-tu en accord avec les affirmations suivantes&nbsp;? <span class="required">*</span></p>
+
+          <div class="form-question">
+            <span class="form-question__label">Accueil</span>
+            <p class="form-question__desc">J'ai été bien accueilli·e (respect, écoute, pas de discrimination, pas de jugement).</p>
+            <div class="scale">
+              <span class="scale__end">Pas du tout d'accord</span>
+              <div class="scale__options">
+                <span class="scale__opt--1"><input type="radio" id="accueil-1" name="scale-accueil" value="1"><label for="accueil-1">1</label></span>
+                <span class="scale__opt--2"><input type="radio" id="accueil-2" name="scale-accueil" value="2"><label for="accueil-2">2</label></span>
+                <span class="scale__opt--3"><input type="radio" id="accueil-3" name="scale-accueil" value="3"><label for="accueil-3">3</label></span>
+                <span class="scale__opt--4"><input type="radio" id="accueil-4" name="scale-accueil" value="4"><label for="accueil-4">4</label></span>
+                <span class="scale__opt--5"><input type="radio" id="accueil-5" name="scale-accueil" value="5"><label for="accueil-5">5</label></span>
+              </div>
+              <span class="scale__end scale__end--right">Tout à fait d'accord</span>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <span class="form-question__label">Conseil et orientation</span>
+            <p class="form-question__desc">Je suis reparti·e avec des réponses claires et précises à mes questions. J'ai été correctement conseillé·e et/ou orienté·e vers d'autres acteurs.</p>
+            <div class="scale">
+              <span class="scale__end">Pas du tout d'accord</span>
+              <div class="scale__options">
+                <span class="scale__opt--1"><input type="radio" id="conseil-1" name="scale-conseil" value="1"><label for="conseil-1">1</label></span>
+                <span class="scale__opt--2"><input type="radio" id="conseil-2" name="scale-conseil" value="2"><label for="conseil-2">2</label></span>
+                <span class="scale__opt--3"><input type="radio" id="conseil-3" name="scale-conseil" value="3"><label for="conseil-3">3</label></span>
+                <span class="scale__opt--4"><input type="radio" id="conseil-4" name="scale-conseil" value="4"><label for="conseil-4">4</label></span>
+                <span class="scale__opt--5"><input type="radio" id="conseil-5" name="scale-conseil" value="5"><label for="conseil-5">5</label></span>
+              </div>
+              <span class="scale__end scale__end--right">Tout à fait d'accord</span>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <span class="form-question__label">Délivrance</span>
+            <p class="form-question__desc">Je suis reparti·e avec les médicaments dont j'avais besoin et des informations claires et précises sur leur utilisation.</p>
+            <div class="scale">
+              <span class="scale__end">Pas du tout d'accord</span>
+              <div class="scale__options">
+                <span class="scale__opt--1"><input type="radio" id="delivrance-1" name="scale-delivrance" value="1"><label for="delivrance-1">1</label></span>
+                <span class="scale__opt--2"><input type="radio" id="delivrance-2" name="scale-delivrance" value="2"><label for="delivrance-2">2</label></span>
+                <span class="scale__opt--3"><input type="radio" id="delivrance-3" name="scale-delivrance" value="3"><label for="delivrance-3">3</label></span>
+                <span class="scale__opt--4"><input type="radio" id="delivrance-4" name="scale-delivrance" value="4"><label for="delivrance-4">4</label></span>
+                <span class="scale__opt--5"><input type="radio" id="delivrance-5" name="scale-delivrance" value="5"><label for="delivrance-5">5</label></span>
+              </div>
+              <span class="scale__end scale__end--right">Tout à fait d'accord</span>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <span class="form-question__label">Confidentialité</span>
+            <p class="form-question__desc">J'ai le sentiment que ma confidentialité a été respectée.</p>
+            <div class="scale">
+              <span class="scale__end">Pas du tout d'accord</span>
+              <div class="scale__options">
+                <span class="scale__opt--1"><input type="radio" id="confidentialite-1" name="scale-confidentialite" value="1"><label for="confidentialite-1">1</label></span>
+                <span class="scale__opt--2"><input type="radio" id="confidentialite-2" name="scale-confidentialite" value="2"><label for="confidentialite-2">2</label></span>
+                <span class="scale__opt--3"><input type="radio" id="confidentialite-3" name="scale-confidentialite" value="3"><label for="confidentialite-3">3</label></span>
+                <span class="scale__opt--4"><input type="radio" id="confidentialite-4" name="scale-confidentialite" value="4"><label for="confidentialite-4">4</label></span>
+                <span class="scale__opt--5"><input type="radio" id="confidentialite-5" name="scale-confidentialite" value="5"><label for="confidentialite-5">5</label></span>
+              </div>
+              <span class="scale__end scale__end--right">Tout à fait d'accord</span>
+            </div>
+          </div>
+
+          <div class="form-question">
+            <span class="form-question__label">Expérience positive</span>
+            <p class="form-question__desc">L'expérience a été globalement positive.</p>
+            <div class="scale">
+              <span class="scale__end">Pas du tout d'accord</span>
+              <div class="scale__options">
+                <span class="scale__opt--1"><input type="radio" id="experience-1" name="scale-experience" value="1"><label for="experience-1">1</label></span>
+                <span class="scale__opt--2"><input type="radio" id="experience-2" name="scale-experience" value="2"><label for="experience-2">2</label></span>
+                <span class="scale__opt--3"><input type="radio" id="experience-3" name="scale-experience" value="3"><label for="experience-3">3</label></span>
+                <span class="scale__opt--4"><input type="radio" id="experience-4" name="scale-experience" value="4"><label for="experience-4">4</label></span>
+                <span class="scale__opt--5"><input type="radio" id="experience-5" name="scale-experience" value="5"><label for="experience-5">5</label></span>
+              </div>
+              <span class="scale__end scale__end--right">Tout à fait d'accord</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             RECOMMANDATION + REMARQUES
+             ============================================================ -->
+        <div class="form-question">
+          <span class="form-question__label">Recommanderais-tu cette pharmacie&nbsp;? <span class="required">*</span></span>
+          <div class="choice-group">
+            <input type="radio" id="recommande-oui" name="recommande" value="oui">
+            <label for="recommande-oui">Oui</label>
+            <input type="radio" id="recommande-non" name="recommande" value="non">
+            <label for="recommande-non">Non</label>
+            <input type="radio" id="recommande-pas-sur" name="recommande" value="pas_sur">
+            <label for="recommande-pas-sur">Je ne suis pas sûr·e</label>
+          </div>
+        </div>
+
+        <div class="form-question">
+          <label class="form-question__label" for="remarques">Remarques</label>
+          <textarea class="form-textarea" id="remarques" name="remarques" rows="4"></textarea>
+        </div>
+
+        <!-- ============================================================
+             QUESTIONS OPTIONNELLES — STATISTIQUES
+             ============================================================ -->
+        <div class="form-section">
+          <h2 class="form-section__title">Questions optionnelles à visée statistique</h2>
+
+          <div class="form-question">
+            <label class="form-question__label" for="genre">Comment te définis-tu&nbsp;?</label>
+            <select class="form-select" id="genre" name="genre">
+              <option value="">— Ne souhaite pas préciser —</option>
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+              <option value="non_binaire">Non binaire</option>
+              <option value="trans_masculin">Personne trans masculine</option>
+              <option value="trans_feminine">Personne trans féminine</option>
+              <option value="sans_reponse">Ne souhaite pas répondre</option>
+            </select>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="age">Quel est ton âge&nbsp;?</label>
+            <select class="form-select" id="age" name="age">
+              <option value="">— Ne souhaite pas préciser —</option>
+              <option value="-15">Moins de 15 ans</option>
+              <option value="15-18">15 – 18 ans</option>
+              <option value="18-26">18 – 26 ans</option>
+              <option value="27-40">27 – 40 ans</option>
+              <option value="41-55">41 – 55 ans</option>
+              <option value="56-65">56 – 65 ans</option>
+              <option value="66-85">66 – 85 ans</option>
+            </select>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="genre_pro">Quel est le genre du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
+            <select class="form-select" id="genre_pro" name="genre_pro">
+              <option value="">— Ne souhaite pas préciser —</option>
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+              <option value="pas_sur">Je ne suis pas sûr·e</option>
+              <option value="ne_se_souvient_pas">Je ne me souviens pas</option>
+            </select>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="age_pro">Quelle est la tranche d'âge du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
+            <select class="form-select" id="age_pro" name="age_pro">
+              <option value="">— Ne souhaite pas préciser —</option>
+              <option value="20-30">20 – 30 ans</option>
+              <option value="30-40">30 – 40 ans</option>
+              <option value="50-65">50 – 65 ans</option>
+            </select>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="discrimination">Penses-tu avoir été discriminé·e dans ta prise en charge (âge, genre, orientation sexuelle, maîtrise du français, apparence, ethnicité, classe, handicap…)&nbsp;?</label>
+            <textarea class="form-textarea" id="discrimination" name="discrimination" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div id="form-send-error" class="form-error" role="alert" hidden>
+          L'envoi a échoué. Vérifie ta connexion et réessaie — tes réponses sont toujours dans le formulaire.
+        </div>
+
+        <div class="content__cta">
+          <button class="btn btn--ink btn--lg" type="submit">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-heart"></use></svg>
+            Envoyer le questionnaire
+          </button>
+          <p class="content__cta-note">Anonyme · environ 3 minutes</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ============================================================
+         PAGE DE FIN
+         ============================================================ -->
+    <div id="questionnaire-confirmation" class="form-confirmation" hidden>
+      <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-hear"></use></svg>
+      <h1 class="content__title">Merci&nbsp;!</h1>
+      <p class="content__lead">Ta réponse a bien été envoyée. N'oublie pas que tu as des <a href="#droits.html">droits</a> </p>
+      <div class="content__cta">
+        <a class="btn btn--outline" href="index.html">Retour à l'accueil</a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<site-footer></site-footer>
+
+</body>
+</html>

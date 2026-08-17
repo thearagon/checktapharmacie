@@ -1,0 +1,80 @@
+[
+  {
+    "id": "centre",
+    "name": "Pharmacie du Centre",
+    "address": "12 place Grenette",
+    "city": "38000 Grenoble",
+    "lat": 45.1907, "lng": 5.7325,
+    "average": 4.3,
+    "criteria": { "accueil": 4.5, "conseil": 4.2, "delivrance": 4.4, "confidentialite": 4.6, "experience": 4.0 },
+    "responses_count": 12,
+    "last_response": "2026-05-14",
+    "raisons": ["information", "delivrance"],
+    "motifs": ["contraception", "contraception_urgence", "symptomes"]
+  },
+  {
+    "id": "gare",
+    "name": "Pharmacie de la Gare",
+    "address": "5 rue Émile Zola",
+    "city": "38000 Grenoble",
+    "lat": 45.1885, "lng": 5.7159,
+    "average": 3.6,
+    "criteria": { "accueil": 3.8, "conseil": 3.4, "delivrance": 3.7, "confidentialite": 3.9, "experience": 3.3 },
+    "responses_count": 4,
+    "last_response": "2025-01-20",
+    "raisons": ["delivrance"],
+    "motifs": ["contraception", "preservatif"]
+  },
+  {
+    "id": "vercors",
+    "name": "Pharmacie du Vercors",
+    "address": "8 avenue de la République",
+    "city": "38130 Échirolles",
+    "lat": 45.1553, "lng": 5.7108,
+    "average": 4.8,
+    "criteria": { "accueil": 4.9, "conseil": 4.7, "delivrance": 4.8, "confidentialite": 5.0, "experience": 4.6 },
+    "responses_count": 20,
+    "last_response": "2026-07-30",
+    "raisons": ["information", "delivrance"],
+    "motifs": ["ivg", "contraception", "violences", "grossesse"]
+  },
+  {
+    "id": "alpes",
+    "name": "Pharmacie des Alpes",
+    "address": "22 rue de la Liberté",
+    "city": "38400 Saint-Martin-d'Hères",
+    "lat": 45.1745, "lng": 5.7684,
+    "average": 3.1,
+    "criteria": { "accueil": 3.3, "conseil": 3.0, "delivrance": 3.2, "confidentialite": 3.4, "experience": 2.7 },
+    "responses_count": 3,
+    "last_response": "2026-06-01",
+    "raisons": ["information"],
+    "motifs": ["preservatif", "vaccin"]
+  },
+  {
+    "id": "marche",
+    "name": "Pharmacie du Marché",
+    "address": "3 place du Marché",
+    "city": "38100 Grenoble",
+    "lat": 45.2011, "lng": 5.7189,
+    "average": 4.0,
+    "criteria": { "accueil": 4.2, "conseil": 3.9, "delivrance": 4.1, "confidentialite": 4.0, "experience": 3.8 },
+    "responses_count": 7,
+    "last_response": "2024-03-10",
+    "raisons": ["delivrance"],
+    "motifs": ["contraception_urgence", "symptomes"]
+  },
+  {
+    "id": "berriat",
+    "name": "Pharmacie Berriat",
+    "address": "45 cours Berriat",
+    "city": "38000 Grenoble",
+    "lat": 45.1889, "lng": 5.7104,
+    "average": 4.5,
+    "criteria": { "accueil": 4.6, "conseil": 4.4, "delivrance": 4.5, "confidentialite": 4.7, "experience": 4.3 },
+    "responses_count": 9,
+    "last_response": "2026-08-01",
+    "raisons": ["information", "delivrance"],
+    "motifs": ["transition_hormonale", "trouble_psy", "don_ovocyte"]
+  }
+]

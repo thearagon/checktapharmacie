@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trouver une pharmacie — Planning Familial 38</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/layout.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="/js/trouver.js" defer></script>
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <article class="content" style="max-width:840px;">
+
+    <header class="content__intro">
+      <span class="content__eyebrow">Annuaire communautaire</span>
+      <h1 class="content__title">Trouver une <span class="chalk chalk--teal">pharmacie</span></h1>
+    </header>
+
+    <p>Cet annuaire <strong>recense des pharmacies considérées comme proposant un accueil bienveillant et à l'écoute</strong> pour des délivrances et conseils relevant de la santé sexuelle. Il est alimenté sur la base de témoignages. Par conséquent, il ne représente qu'un aspect limité de l'éthique et/ou des pratiques des soignant·es de ces officines.</p>
+
+    <p>Nous n'intégrons que les coordonnées de pharmacies nous ayant été recommandées sur des critères positifs, c'est-à-dire qui obtiennent une note moyenne supérieure à 3/5. Nos critères sont détaillés <a href="ressources.html#criteres">ici</a>.</p>
+
+    <p><span class="chalk chalk--dark-cream">Pour contribuer</span> à cet outil communautaire, remplis <a href="recommander.html">ce formulaire</a>.</p>
+
+    <div class="content__callout">
+      <p><strong>Pharmacien·nes</strong>, si vous trouvez votre officine sur cet annuaire, c'est que vous avez permis à une personne de se sentir écoutée, informée et globalement bien traitée pour des conseils ou délivrances relevant de la santé sexuelle. Si vous voulez être retiré·es de notre annuaire, rendez-vous <a href="#jesuispharmacien-ne">ici</a>.</p>
+    </div>
+
+    <!-- ============================================================
+         FILTRE + CARTE
+         ============================================================ -->
+    <div class="map-filter">
+      <div>
+        <label for="filtre-type-visite">Type de la visite</label>
+        <select class="form-select" id="filtre-type-visite" style="width:auto;">
+          <option value="">Toutes</option>
+          <option value="information">Information</option>
+          <option value="delivrance">Délivrance</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="filtre-raison">Raison</label>
+        <select class="form-select" id="filtre-raison" style="width:auto;">
+          <option value="">Toutes</option>
+          <option value="preservatif">Préservatif (interne et externe)</option>
+          <option value="contraception">Contraception</option>
+          <option value="contraception_urgence">Contraception d'urgence</option>
+          <option value="grossesse">Grossesse et diagnostic de grossesse</option>
+          <option value="ivg">IVG (interruption volontaire de grossesse)</option>
+          <option value="protections_reutilisables">Protections hygiéniques réutilisables</option>
+          <option value="violences">Violences conjugales / sexistes et sexuelles</option>
+          <option value="symptomes">Symptômes, gênes des organes génitaux</option>
+          <option value="vaccin">Vaccin lié à la santé sexuelle</option>
+          <option value="transition_hormonale">Traitement de transition hormonale</option>
+          <option value="don_ovocyte">Don d'ovocyte</option>
+          <option value="trouble_psy">Trouble psychologique lié à la santé sexuelle</option>
+          <option value="autre">Autre traitement ou demande médicale</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="filtre-critere">Critère</label>
+        <select class="form-select" id="filtre-critere" style="width:auto;">
+          <option value="">Note globale</option>
+          <option value="accueil">Accueil</option>
+          <option value="conseil">Conseil et orientation</option>
+          <option value="delivrance">Délivrance</option>
+          <option value="confidentialite">Confidentialité</option>
+          <option value="experience">Expérience positive</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <div id="map"></div>
+    </div>
+
+    <!-- ============================================================
+         LISTE — pharmacies visibles dans le cadrage de la carte
+         ============================================================ -->
+    <h2 class="form-section__title" style="font-size:1.15rem;">Pharmacies affichées sur la carte</h2>
+    <p id="liste-critere-label" class="pharmacy-list__critere-active" hidden></p>
+    <p class="pharmacy-list__hint">Clique sur une pharmacie pour voir son détail sur la carte.</p>
+    <div id="pharmacy-list" class="pharmacy-list">
+      <p class="pharmacy-list__empty">Chargement de l'annuaire…</p>
+    </div>
+
+  </article>
+</main>
+
+<site-footer></site-footer>
+
+</body>
+</html>
