@@ -215,9 +215,15 @@ async function init(){
       const ouvrir = () => {
         const marker = markersById.get(card.dataset.id);
         if(!marker) return;
+
+        // Désactive le survol "collé" sur la carte cliquée (courant sur
+        // mobile), en la marquant comme active plutôt qu'au survol.
+        listEl.querySelectorAll('.pharmacy-card--active').forEach(c => c.classList.remove('pharmacy-card--active'));
+        card.classList.add('pharmacy-card--active');
+        card.blur();
+
         map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 15), { duration: .6 });
-        marker.once('moveend', () => marker.openPopup());
-        marker.openPopup();
+        map.once('moveend', () => marker.openPopup());
         document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
       };
       card.addEventListener('click', ouvrir);

@@ -816,6 +816,7 @@ site-footer{
 /* Surcharge Leaflet pour coller au design (fond crème, coins doux) */
 .leaflet-popup-content-wrapper{ background: var(--cream); border-radius: 8px; }
 .leaflet-popup-tip{ background: var(--cream); }
+.leaflet-popup-content{ max-height: 60vh; overflow-y: auto; }
 
 /* ============================================================
    13. RESPONSIVE
@@ -866,7 +867,7 @@ site-footer{
   .scale{ flex-direction: column; align-items: flex-start; gap: .4rem; }
   .scale__end{ max-width: none; }
   .scale__end--right{ text-align: left; }
-  #map{ height: 320px; }
+  #map{ height: min(75vh, 480px); }
   .pharmacy-card{ flex-wrap: wrap; }
   .map-filter{ flex-direction: column; align-items: stretch; gap: var(--gap-sm); }
   .map-filter select{ max-width: none; width: 100%; }
