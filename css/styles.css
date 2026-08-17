@@ -611,12 +611,32 @@ site-footer{
 /* Échelle graduée colorée (accord/désaccord) */
 .scale{ display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
 .scale__end{
+  position: relative;
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: .86rem;
-  opacity: .65;
+  padding: .15em .45em;
   max-width: 130px;
+  z-index: 0;
+}
+.scale__end::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1.15em;
+  transform: translateY(-52%);
+  right: -4%;
+  width: 108%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-image: url("../assets/graphics/chalk-pale-violet.svg");
 }
 .scale__end--right{ text-align: right; }
+.scale__end--right::before{
+  background-image: url("../assets/graphics/chalk-pale-teal.svg");
+}
 .scale__options{ display: flex; gap: .5rem; }
 .scale__options input{ position: absolute; opacity: 0; }
 .scale__options label{
@@ -629,8 +649,8 @@ site-footer{
   cursor: pointer;
   transition: transform .15s ease;
 }
-.scale__options .scale__opt--1 label{ background: #efe3f2; }
-.scale__options .scale__opt--2 label{ background: #ddc9e6; }
+.scale__options .scale__opt--1 label{ background: #ddc9e6; }
+.scale__options .scale__opt--2 label{ background: #efe3f2; }
 .scale__options .scale__opt--3 label{ background: var(--cream-soft); }
 .scale__options .scale__opt--4 label{ background: #bfe3dd; }
 .scale__options .scale__opt--5 label{ background: #8fd0c6; }
@@ -825,7 +845,7 @@ site-footer{
   padding-left: var(--gap-sm);
   margin-top: .3rem;
   min-width: 0;
-}
+  }
   .nav__list li{ width: 100%; }
   .nav__link{ display: block; padding: .9em .5em; }
 
