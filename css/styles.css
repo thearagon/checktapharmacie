@@ -451,7 +451,7 @@ site-footer{
 }
 .content strong{ font-weight: 700; }
 .content a{
-  color: var(--violet);
+/*   color: var(--violet); */
   text-decoration: underline;
   text-underline-offset: .15em;
 }
