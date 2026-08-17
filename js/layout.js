@@ -5,6 +5,21 @@
     <site-header></site-header>
     <site-footer></site-footer>
 
+  CHEMINS RELATIFS AUTO-ADAPTÉS
+  ------------------------------
+  Ce fichier peut être chargé depuis la racine (index.html) ou depuis
+  ressources/ (ressources/droits.html, etc.) — deux profondeurs
+  différentes. Comme layout.js ne peut pas utiliser un seul chemin
+  fixe qui marche aux deux niveaux, on calcule deux préfixes au
+  chargement du script :
+    ROOT : chemin vers la racine du site (ex: "assets/", "css/"...)
+           → "" si on est déjà à la racine, "../" si on est dans
+           ressources/
+    RES  : chemin vers une autre page de ressources/
+           → "ressources/" si on est à la racine, "" si on y est déjà
+  Ça permet de déployer le site n'importe où (racine du domaine,
+  GitHub Pages en sous-dossier de projet, etc.) sans rien changer.
+
   La page active est détectée automatiquement (comparaison du nom
   de fichier dans l'URL avec le href de chaque lien) — pas besoin
   de préciser quoi que ce soit page par page.
@@ -20,37 +35,41 @@
   partout automatiquement.
 */
 
+const DANS_RESSOURCES = location.pathname.includes('/ressources/');
+const ROOT = DANS_RESSOURCES ? '../' : '';
+const RES = DANS_RESSOURCES ? '' : 'ressources/';
+
 class SiteHeader extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
   <div class="header__logos">
-  <a class="logo" href="/index.html" aria-label="Retour à l'accueil">
-  <img src="/assets/logos/checktapharmacie.svg" alt="">
+  <a class="logo" href="${ROOT}index.html" aria-label="Retour à l'accueil">
+  <img src="${ROOT}assets/logos/checktapharmacie.svg" alt="">
 </a>
 <a class="logo logo--secondary" href="https://www.planning-familial.org/fr/leplanning38" aria-label="Site du Planning Familial" target="_blank" rel="noopener">
-  <img src="/assets/logos/logo_pf38_horiz.svg" alt="">
+  <img src="${ROOT}assets/logos/logo_pf38_horiz.svg" alt="">
 </a>
   </div>
 
   <nav class="nav" aria-label="Navigation principale">
     <ul class="nav__list">
-      <li><a class="nav__link" href="/index.html">Accueil</a></li>
-      <li><a class="nav__link" href="/recommander.html">Recommander une pharmacie</a></li>
-      <li><a class="nav__link" href="/trouver.html">Trouver une pharmacie</a></li>
+      <li><a class="nav__link" href="${ROOT}index.html">Accueil</a></li>
+      <li><a class="nav__link" href="${ROOT}recommander.html">Recommander une pharmacie</a></li>
+      <li><a class="nav__link" href="${ROOT}trouver.html">Trouver une pharmacie</a></li>
       <li class="nav__item--dropdown">
-        <a class="nav__link" href="/ressources.html" aria-haspopup="true">
+        <a class="nav__link" href="${ROOT}ressources.html" aria-haspopup="true">
           Ressources
-          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+          <svg class="icon" aria-hidden="true"><use href="${ROOT}assets/icons/sprite.svg#icon-chevron-down"></use></svg>
         </a>
         <ul class="nav__dropdown">
-          <li><a href="/ressources/droits.html">Mes droits</a></li>
-          <li><a href="/ressources/abus.html">Que faire en cas d'abus ?</a></li>
+          <li><a href="${RES}droits.html">Mes droits</a></li>
+          <li><a href="${RES}abus.html">Que faire en cas d'abus ?</a></li>
           <span class="nav__sublabel">L'annuaire</span>
-          <li><a href="/ressources/criteres.html">Les critères de l'annuaire</a></li>
-          <li><a href="/ressources/faq.html">FAQ</a></li>
-          <li><a href="/ressources/pharmacienne.html">Je suis pharmacien·ne</a></li>
+          <li><a href="${RES}criteres.html">Les critères de l'annuaire</a></li>
+          <li><a href="${RES}faq.html">FAQ</a></li>
+          <li><a href="${RES}pharmacienne.html">Je suis pharmacien·ne</a></li>
           <span class="nav__sublabel">Qui sommes-nous</span>
-          <li><a href="/ressources/contact.html">Contact</a></li>
+          <li><a href="${RES}contact.html">Contact</a></li>
           <li><a href="https://www.planning-familial.org/fr/leplanning38">Le Planning Familial de l'Isère</a></li>
         </ul>
       </li>
@@ -70,17 +89,16 @@ class SiteHeader extends HTMLElement {
   _markActivePage(){
     const path = location.pathname;
     const here = path.split('/').pop() || 'index.html';
-    const dansRessources = path.includes('/ressources/');
 
     this.querySelectorAll('.nav__link[href]').forEach(link => {
       const href = link.getAttribute('href');
       const target = href.split('/').pop();
 
       // Actif si : c'est exactement la page courante, OU si on navigue
-      // quelque part dans /ressources/ et que ce lien est celui vers
+      // quelque part dans ressources/ et que ce lien est celui vers
       // "Ressources" dans le menu principal.
       const estCeLien = target === here;
-      const estRessourcesDepuisSousPage = dansRessources && href === '/ressources.html';
+      const estRessourcesDepuisSousPage = DANS_RESSOURCES && target === 'ressources.html';
 
       if (estCeLien || estRessourcesDepuisSousPage) {
         link.setAttribute('aria-current', 'page');

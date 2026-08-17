@@ -25,7 +25,7 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
   <div class="header__logos">
   <a class="logo" href="/index.html" aria-label="Retour à l'accueil">
-  <img src="/assets/logos/logo_checktapharmacie.svg" alt="">
+  <img src="/assets/logos/checktapharmacie.svg" alt="">
 </a>
 <a class="logo logo--secondary" href="https://www.planning-familial.org/fr/leplanning38" aria-label="Site du Planning Familial" target="_blank" rel="noopener">
   <img src="/assets/logos/logo_pf38_horiz.svg" alt="">
@@ -68,17 +68,25 @@ class SiteHeader extends HTMLElement {
   }
 
   _markActivePage(){
-    const here = location.pathname.split('/').pop() || 'index.html';
+    const path = location.pathname;
+    const here = path.split('/').pop() || 'index.html';
+    const dansRessources = path.includes('/ressources/');
+
     this.querySelectorAll('.nav__link[href]').forEach(link => {
-      const target = link.getAttribute('href').split('/').pop();
-      if (target === here) {
+      const href = link.getAttribute('href');
+      const target = href.split('/').pop();
+
+      // Actif si : c'est exactement la page courante, OU si on navigue
+      // quelque part dans /ressources/ et que ce lien est celui vers
+      // "Ressources" dans le menu principal.
+      const estCeLien = target === here;
+      const estRessourcesDepuisSousPage = dansRessources && href === '/ressources.html';
+
+      if (estCeLien || estRessourcesDepuisSousPage) {
         link.setAttribute('aria-current', 'page');
 
         let label = link.querySelector('.nav__label');
         if (!label) {
-          // Pas de span dédié dans le markup : on enveloppe nous-mêmes
-          // le texte du lien (le premier nœud texte non vide trouvé
-          // dans .nav__link — ça marche même s'il y a une icône à côté).
           const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT);
           let textNode;
           while ((textNode = walker.nextNode())) {

@@ -97,10 +97,10 @@ p{ margin:0; line-height: 1.6; }
   background-position: 0 0;
   background-size: 100% 100%;
 }
-.chalk--violet::before{ background-image: url("/assets/graphics/chalk-violet.svg"); }
-.chalk--teal::before{   background-image: url("/assets/graphics/chalk-teal.svg"); }
-.chalk--ink::before{    background-image: url("/assets/graphics/chalk-ink.svg"); }
-.chalk--dark-cream::before{    background-image: url("/assets/graphics/chalk-dark-cream.svg"); }
+.chalk--violet::before{ background-image: url("../assets/graphics/chalk-violet.svg"); }
+.chalk--teal::before{   background-image: url("../assets/graphics/chalk-teal.svg"); }
+.chalk--ink::before{    background-image: url("../assets/graphics/chalk-ink.svg"); }
+.chalk--dark-cream::before{    background-image: url("../assets/graphics/chalk-dark-cream.svg"); }
 
 .chalk--onviolet{
   color: #f9efe5;
@@ -108,7 +108,7 @@ p{ margin:0; line-height: 1.6; }
   font-style: normal;
 }
 .chalk--onviolet::before{
-  background-image: url("/assets/graphics/chalk-violet.svg");
+  background-image: url("../assets/graphics/chalk-violet.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
