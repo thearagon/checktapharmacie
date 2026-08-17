@@ -139,7 +139,7 @@ class SiteFooter extends HTMLElement {
     <li><a class="footer__link" href="${RES}pourquoi.html">Pourquoi cet annuaire ?</a></li>
     <li><a class="footer__link" href="${RES}contact.html">Contact</a></li>
     <li>
-      <a class="footer__link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+      <a class="footer__link" href="https://www.instagram.com/planningfamilial38/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg class="icon" aria-hidden="true"><use href="${ROOT}assets/icons/sprite.svg#icon-instagram"></use></svg>
       </a>
     </li>
