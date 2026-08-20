@@ -21,19 +21,35 @@
   <article class="content" style="max-width:840px;">
 
     <header class="content__intro">
-      <span class="content__eyebrow">Annuaire communautaire</span>
-      <h1 class="content__title">Trouver une <span class="chalk chalk--teal">pharmacie</span></h1>
+<!--       <span class="content__eyebrow">Annuaire communautaire</span> -->
+      <h1 class="content__title"><span class="chalk chalk--teal">Trouver</span> une pharmacie</h1>
+      <p class="content__lead">
+      proposant un  accueil bienveillant et à l'écoute.</p>
+      
     </header>
 
-    <p>Cet annuaire <strong>recense des pharmacies considérées comme proposant un accueil bienveillant et à l'écoute</strong> pour des délivrances et conseils relevant de la santé sexuelle. Il est alimenté sur la base de témoignages. Par conséquent, il ne représente qu'un aspect limité de l'éthique et/ou des pratiques des soignant·es de ces officines.</p>
+  <p>Cet annuaire est alimenté sur la base de témoignages, et donc ne représente qu'un aspect partiel de l'éthique et/ou des pratiques des soignant·es de ces officines. Nous n'intégrons que les coordonnées de pharmacies qui obtiennent une note moyenne supérieure à 3/5 selon <a href="ressources/criteres.html">nos critères</a>.</p>
 
-    <p>Nous n'intégrons que les coordonnées de pharmacies nous ayant été recommandées sur des critères positifs, c'est-à-dire qui obtiennent une note moyenne supérieure à 3/5. Nos critères sont détaillés <a href="ressources.html#criteres">ici</a>.</p>
+    <div class="content__callout" id="callout-pharmaciens" tabindex="0" role="button" aria-expanded="false"
+     style="cursor:pointer;">
+  <p>
+    <strong>Pharmacien·nes</strong>, 
+    <span class="callout__suite" hidden> si vous trouvez votre officine sur cet annuaire, c'est que vous avez permis à une personne de se sentir écoutée, informée et globalement bien traitée pour des conseils ou délivrances relevant de la santé sexuelle. Si vous voulez être retiré·es de notre annuaire, rendez-vous <a href="ressources/pharmacienne.html">ici</a>.</span>
+    <span class="callout__ellipsis">[…]</span>
+  </p>
+</div>
 
-    <p><span class="chalk chalk--dark-cream">Pour contribuer</span> à cet outil communautaire, remplis <a href="recommander.html">ce formulaire</a>.</p>
-
-    <div class="content__callout">
-      <p><strong>Pharmacien·nes</strong>, si vous trouvez votre officine sur cet annuaire, c'est que vous avez permis à une personne de se sentir écoutée, informée et globalement bien traitée pour des conseils ou délivrances relevant de la santé sexuelle. Si vous voulez être retiré·es de notre annuaire, rendez-vous <a href="#jesuispharmacien-ne">ici</a>.</p>
-    </div>
+<script>
+  document.getElementById('callout-pharmaciens').addEventListener('click', function(e){
+    if(e.target.tagName === 'A') return; // laisse le lien fonctionner normalement une fois déplié
+    const suite = this.querySelector('.callout__suite');
+    const ellipsis = this.querySelector('.callout__ellipsis');
+    const ouvert = !suite.hidden;
+    suite.hidden = ouvert;
+    ellipsis.hidden = !ouvert;
+    this.setAttribute('aria-expanded', String(!ouvert));
+  });
+</script>
 
     <!-- ============================================================
          FILTRE + CARTE
@@ -95,6 +111,7 @@
       <p class="pharmacy-list__empty">Chargement de l'annuaire…</p>
     </div>
 
+    
   </article>
 </main>
 

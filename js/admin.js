@@ -109,7 +109,8 @@ function onLogoutClick(e){
 }
 
 function syncNavLogin(loggedIn){
-  const link = document.querySelector("site-header .nav__login");
+  // const link = document.querySelector("site-header .nav__login");
+  const link = document.querySelector("site-footer .footer__link[href$='admin.html']");
   if(!link) return;
 
   if(loggedIn){

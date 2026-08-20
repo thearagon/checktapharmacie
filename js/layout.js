@@ -65,17 +65,12 @@ class SiteHeader extends HTMLElement {
           <li><a href="${RES}droits.html">Mes droits</a></li>
           <li><a href="${RES}abus.html">Que faire en cas d'abus ?</a></li>
           <span class="nav__sublabel">L'annuaire</span>
-          <li><a href="${RES}criteres.html">Les critères de l'annuaire</a></li>
           <li><a href="${RES}faq.html">FAQ</a></li>
           <li><a href="${RES}pharmacienne.html">Je suis pharmacien·ne</a></li>
-          <span class="nav__sublabel">Qui sommes-nous</span>
-          <li><a href="${RES}contact.html">Contact</a></li>
-          <li><a href="https://www.planning-familial.org/fr/leplanning38">Le Planning Familial de l'Isère</a></li>
         </ul>
       </li>
       <li><a class="nav__link" href="https://www.helloasso.com/associations/planning-familial-isere/formulaires/2">Soutenir le Planning Familial</a></li>
     </ul>
-    <a class="nav__login" href="${ROOT}admin.html">Se connecter</a>
     <button class="nav__burger" aria-label="Ouvrir le menu">
       <span></span><span></span><span></span>
     </button>
@@ -84,6 +79,7 @@ class SiteHeader extends HTMLElement {
 
     this._markActivePage();
     this._wireBurger();
+    this._wireDropdownMobile();
   }
 
   _markActivePage(){
@@ -130,6 +126,16 @@ _wireBurger(){
     nav.classList.toggle('is-open');
   });
 }
+_wireDropdownMobile(){
+  const item = this.querySelector('.nav__item--dropdown');
+  const trigger = item.querySelector(':scope > .nav__link');
+  trigger.addEventListener('click', (e) => {
+    if(window.matchMedia('(max-width: 880px)').matches){
+      e.preventDefault();
+      item.classList.toggle('is-open');
+    }
+  });
+}
 }
 
 class SiteFooter extends HTMLElement {
@@ -137,6 +143,7 @@ class SiteFooter extends HTMLElement {
     this.innerHTML = `
 <ul class="footer__list">
     <li><a class="footer__link" href="${RES}pourquoi.html">Pourquoi cet annuaire ?</a></li>
+    <li><a class="footer__link" href="${RES}faq.html">FAQ</a></li>
     <li><a class="footer__link" href="${RES}contact.html">Contact</a></li>
     <li>
       <a class="footer__link" href="https://www.instagram.com/planningfamilial38/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -148,6 +155,7 @@ class SiteFooter extends HTMLElement {
         <svg class="icon" aria-hidden="true"><use href="${ROOT}assets/icons/sprite.svg#icon-bullseye"></use></svg>
       </a>
     </li>
+    <a class="nav__login" href="${ROOT}admin.html">Se connecter</a>
   </ul>
     `;
   }

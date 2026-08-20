@@ -24,33 +24,55 @@
   <article class="content">
 
     <header class="content__intro">
-      <span class="section__eyebrow">Contribuer à l'annuaire</span>
-      <h1 class="content__title">Recommander une <span class="chalk chalk--teal">pharmacie</span></h1>
-      <p class="content__lead">Si tu t'es rendu·e en pharmacie récemment et que tu aimerais recommander une officine, c'est l'endroit!
-      <nb> Ca prend 3 minutes et c'est anonyme.</p>
+<!--       <span class="section__eyebrow">Contribuer à l'annuai re</span> -->
+      <h1 class="content__title"><span class="chalk chalk--teal">Recommander</span> une pharmacie</h1>
+      <p class="content__lead">
+      Ca prend <strong>3 minutes </strong> et c'est <strong>anonyme</strong>.</p>
       
     </header>
 
     <div class="content__card">
       <span class="content__notice">Attention</span>
       <ul>
-        <li>Si tu souhaites recommander plusieurs pharmacies, un grand merci&nbsp;! <strong>Nous te demanderons seulement de remplir un questionnaire par officine</strong>.</li>
-        <li>Plusieurs pharmacien·nes et préparateur·rices travaillent dans une même pharmacie. Nos chiffres sont donc un reflet de l'accueil moyen prodigué dans cette officine.</li>
-        <li>Aucun lieu n'est idéal&nbsp;: même s'il ne correspond pas exactement à tous les critères, envoie-nous quand même le questionnaire.</li>
-        <li>Base-toi uniquement sur <strong>ton</strong> expérience pendant la visite quand tu recommandes une pharmacie.</li>
+        <li>Si tu souhaites recommander plusieurs pharmacies, merci de remplir <strong>un questionnaire par officine</strong>.</li>
+        <li>Plusieurs pharmacien·nes et préparateur·rices travaillent dans une même pharmacie. Nos chiffres reflètent <i>une moyenne</i> de l'accueil prodigué dans cette officine.</li>
+<!--         <li>Aucun lieu n'est idéal&nbsp;: même s'il ne correspond pas exactement à tous les critères, envoie-nous quand même le questionnaire.</li> -->
+        <li>Base-toi uniquement sur <strong>ton</strong> expérience quand tu recommandes une pharmacie.</li>
       </ul>
     </div>
 
-    <div class="content__callout">
+<!--    <div class="content__callout">
       <p><strong>Pharmacien·nes</strong>, nous vous demandons de ne pas utiliser cette liste pour faire votre publicité. Si vous trouvez votre officine sur cet annuaire, c'est que vous avez permis à une personne de se sentir écoutée, informée et globalement bien traitée pour des conseils ou délivrances relevant de la santé sexuelle. Si vous voulez être retiré·es de notre annuaire, rendez-vous <a href="ressources/pharmacienne.html">ici</a>.</p>
-    </div>
+    </div>-->
+    
+    <div class="content__callout" id="callout-pharmaciens" tabindex="0" role="button" aria-expanded="false"
+     style="cursor:pointer;">
+  <p>
+    <strong>Pharmacien·nes</strong>, 
+    <span class="callout__suite" hidden> nous vous demandons de ne pas utiliser cette liste pour faire votre publicité. Si vous voulez être retiré·es de notre annuaire, rendez-vous <a href="ressources/pharmacienne.html">ici</a>..</span>
+    <span class="callout__ellipsis">[…]</span>
+  </p>
+</div>
+
+<script>
+  document.getElementById('callout-pharmaciens').addEventListener('click', function(e){
+    if(e.target.tagName === 'A') return; // laisse le lien fonctionner normalement une fois déplié
+    const suite = this.querySelector('.callout__suite');
+    const ellipsis = this.querySelector('.callout__ellipsis');
+    const ouvert = !suite.hidden;
+    suite.hidden = ouvert;
+    ellipsis.hidden = !ouvert;
+    this.setAttribute('aria-expanded', String(!ouvert));
+  });
+</script>
 
     <div class="content__cta">
+          <p class="content__cta-note">3 minutes · anonyme · un questionnaire par pharmacie</p>
+
       <a class="btn btn--ink btn--lg" href="questionnaire.html">
         <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-heart"></use></svg>
         Remplir le questionnaire
       </a>
-      <p class="content__cta-note">3 minutes · anonyme · un questionnaire par officine</p>
     </div>
 
   </article>

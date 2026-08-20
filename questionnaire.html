@@ -20,7 +20,7 @@
 
     <header class="content__intro">
       <span class="section__eyebrow">Questionnaire anonyme</span>
-      <h1 class="content__title">Recommander une <span class="chalk chalk--teal">pharmacie</span></h1>
+      <h1 class="content__title"><span class="chalk chalk--teal">Recommander</span>  une pharmacie</h1>
       <p class="content__lead">Toutes les questions sont sur cette page. Les champs marqués <span style="color:var(--violet)">*</span> sont obligatoires.</p>
     </header>
 
@@ -48,15 +48,27 @@
         <!-- ============================================================
              RAISON DE LA VISITE
              ============================================================ -->
-        <div class="form-question">
-          <span class="form-question__label">Quelle a été la raison de ta visite en pharmacie&nbsp;? <span class="required">*</span></span>
-          <div class="choice-group">
-            <input type="radio" id="raison-information" name="raison" value="information">
-            <label for="raison-information">Information</label>
-            <input type="radio" id="raison-delivrance" name="raison" value="delivrance">
-            <label for="raison-delivrance">Délivrance</label>
-          </div>
-        </div>
+<div class="form-question">
+  <span class="form-question__label">Quelle a été la raison de ta visite en pharmacie&nbsp;? <span class="required">*</span></span>
+  <div class="choice-group">
+    <input type="radio" id="raison-information" name="raison" value="information">
+    <label for="raison-information">Demande d'information</label>
+    <input type="radio" id="raison-delivrance" name="raison" value="delivrance">
+    <label for="raison-delivrance">Délivrance de médicament, produit</label>
+  </div>
+
+  <p id="desc-information" class="choice-desc" hidden>Tu es venu·e poser une question ou demander un conseil, sans repartir avec un médicament ou un produit particulier.</p>
+  <p id="desc-delivrance" class="choice-desc" hidden>Tu es venu·e, avec ou sans ordonnance, pour obtenir un médicament, un produit ou un dispositif, et les informations nécessaires pour l'utiliser.</p>
+</div>
+
+<script>
+  document.querySelectorAll('input[name="raison"]').forEach(input => {
+    input.addEventListener('change', () => {
+      document.querySelectorAll('.choice-desc').forEach(d => d.hidden = true);
+      document.getElementById(`desc-${input.value}`).hidden = false;
+    });
+  });
+</script>
 
         <!-- ============================================================
              POUR (motifs, choix multiple)
@@ -195,10 +207,12 @@
              QUESTIONS OPTIONNELLES — STATISTIQUES
              ============================================================ -->
         <div class="form-section">
-          <h2 class="form-section__title">Questions optionnelles à visée statistique</h2>
+<!--           <h2 class="form-section__title">Questions optionnelles à visée statistique</h2> -->
+                <span class="section__eyebrow">Questions optionnelles à visée statistique</span>
+
 
           <div class="form-question">
-            <label class="form-question__label" for="genre">Comment te définis-tu&nbsp;?</label>
+            <label class="form-question__label" for="genre"> <span class="form-question__optional">[optionnel]</span>Comment te définis-tu&nbsp;?</label>
             <select class="form-select" id="genre" name="genre">
               <option value="">— Ne souhaite pas préciser —</option>
               <option value="femme">Femme</option>
@@ -211,7 +225,7 @@
           </div>
 
           <div class="form-question">
-            <label class="form-question__label" for="age">Quel est ton âge&nbsp;?</label>
+            <label class="form-question__label" for="age"><span class="form-question__optional">[optionnel]</span>Quel est ton âge&nbsp;?</label>
             <select class="form-select" id="age" name="age">
               <option value="">— Ne souhaite pas préciser —</option>
               <option value="-15">Moins de 15 ans</option>
@@ -225,7 +239,7 @@
           </div>
 
           <div class="form-question">
-            <label class="form-question__label" for="genre_pro">Quel est le genre du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
+            <label class="form-question__label" for="genre_pro"><span class="form-question__optional">[optionnel]</span>Quel est le genre du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
             <select class="form-select" id="genre_pro" name="genre_pro">
               <option value="">— Ne souhaite pas préciser —</option>
               <option value="femme">Femme</option>
@@ -236,7 +250,7 @@
           </div>
 
           <div class="form-question">
-            <label class="form-question__label" for="age_pro">Quelle est la tranche d'âge du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
+            <label class="form-question__label" for="age_pro"><span class="form-question__optional">[optionnel]</span>Quelle est la tranche d'âge du ou de la professionnel·le qui t'a reçu·e&nbsp;?</label>
             <select class="form-select" id="age_pro" name="age_pro">
               <option value="">— Ne souhaite pas préciser —</option>
               <option value="20-30">20 – 30 ans</option>
@@ -246,7 +260,7 @@
           </div>
 
           <div class="form-question">
-            <label class="form-question__label" for="discrimination">Penses-tu avoir été discriminé·e dans ta prise en charge (âge, genre, orientation sexuelle, maîtrise du français, apparence, ethnicité, classe, handicap…)&nbsp;?</label>
+            <label class="form-question__label" for="discrimination"><span class="form-question__optional">[optionnel]</span>Penses-tu avoir été discriminé·e dans ta prise en charge (âge, genre, orientation sexuelle, maîtrise du français, apparence, ethnicité, classe, handicap…)&nbsp;?</label>
             <textarea class="form-textarea" id="discrimination" name="discrimination" rows="3"></textarea>
           </div>
         </div>
@@ -260,11 +274,11 @@
         </div>
 
         <div class="content__cta">
+                  <p class="content__cta-note">Anonyme · un questionnaire à soumettre par pharmacie</p>
           <button class="btn btn--ink btn--lg" type="submit">
             <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-heart"></use></svg>
             Envoyer le questionnaire
           </button>
-          <p class="content__cta-note">Anonyme · environ 3 minutes</p>
         </div>
 
       </form>
