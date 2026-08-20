@@ -22,7 +22,7 @@ async function loadPharmacies(){
         const opt = document.createElement('option');
         opt.value = p.name;
         opt.dataset.address = `${p.address}, ${p.city}`;
-        opt.textContent = `${p.name} — ${p.address}`;
+        opt.textContent = `${p.name} — ${p.address_full}`;
         select.appendChild(opt);
       });
   }catch(err){

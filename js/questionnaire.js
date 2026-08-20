@@ -14,13 +14,13 @@ const API_URL = "https://VOTRE-BACKEND.example/api/reponses";
 const FORM_LOADED_AT = Date.now();
 
 async function loadPharmacies(){
-  const datalist = document.getElementById('pharmacie-liste') || document.getElementById('pharmacies-list');
+  const datalist = document.getElementById('pharmacies-list');
   try{
     const res = await fetch('assets/data/pharmacies.json');
     const pharmacies = await res.json();
     pharmacies.forEach(p => {
       const opt = document.createElement('option');
-      opt.value = `${p.name} — ${p.address}`;
+      opt.value = `${p.name} — ${p.address_full}`;
       datalist.appendChild(opt);
     });
   }catch(err){
