@@ -34,16 +34,17 @@
         <!-- ============================================================
              PHARMACIE
              ============================================================ -->
-        <div class="form-question">
-          <label class="form-question__label" for="pharmacie">
-            Au cours de l'année passée, tu t'es rendu·e dans une pharmacie du département de l'Isère (38), laquelle&nbsp;?
-            <span class="required">*</span>
-          </label>
-          <select class="form-select" id="pharmacie" name="pharmacie">
-            <option value="">— Choisir une pharmacie —</option>
-            <!-- Options ajoutées automatiquement depuis assets/data/pharmacies.json -->
-          </select>
-        </div>
+  <div class="form-question">
+    <label class="form-question__label" for="pharmacie">
+      Au cours de l'année passée, tu t'es rendu·e dans une pharmacie du département de l'Isère (38), laquelle&nbsp;?
+      <span class="required">*</span>
+    </label>
+    <input class="form-input" type="text" id="pharmacie" name="pharmacie"
+          list="pharmacies-list" autocomplete="off" placeholder="Tape le nom, la ville ou la rue…">
+    <datalist id="pharmacies-list">
+      <!-- Options ajoutées automatiquement depuis assets/data/pharmacies.json -->
+    </datalist>
+  </div>
 
         <!-- ============================================================
              RAISON DE LA VISITE
