@@ -11,7 +11,12 @@
 */
 
 const API_URL = "https://VOTRE-BACKEND.example/api/reponses";
+
+// Enregistré au chargement de la page — sert à calculer le temps de
+// remplissage, un des signaux anti-bot vérifiés côté backend.
 const FORM_LOADED_AT = Date.now();
+
+let pharmaciesParLibelle = new Map();
 
 async function loadPharmacies(){
   const datalist = document.getElementById('pharmacies-list');
@@ -19,13 +24,31 @@ async function loadPharmacies(){
     const res = await fetch('assets/data/pharmacies.json');
     const pharmacies = await res.json();
     pharmacies.forEach(p => {
+      // Le libellé combine nom + adresse complète (rue, ville, code postal)
+      // — le navigateur filtre l'autocomplétion en cherchant ce texte tapé
+      // n'importe où dans cette chaîne, donc ça marche aussi bien en tapant
+      // le nom que la rue, la ville ou le code postal.
+      const libelle = `${p.name} — ${p.address_full}`;
       const opt = document.createElement('option');
-      opt.value = `${p.name} — ${p.address_full}`;
+      opt.value = libelle;
       datalist.appendChild(opt);
+      pharmaciesParLibelle.set(libelle, p.id);
     });
   }catch(err){
     console.error('Impossible de charger la liste des pharmacies :', err);
   }
+}
+
+function initPharmacieAutocomplete(){
+  const input = document.getElementById('pharmacie');
+  const hiddenId = document.getElementById('pharmacie_id');
+  const avertissement = document.getElementById('pharmacie-non-trouvee');
+
+  input.addEventListener('input', () => {
+    const id = pharmaciesParLibelle.get(input.value);
+    hiddenId.value = id || '';
+    avertissement.hidden = true; // ne montre l'avertissement qu'à la tentative d'envoi, pas pendant la frappe
+  });
 }
 
 function initAutreReveal(){
@@ -39,7 +62,11 @@ function initAutreReveal(){
 
 function validate(form){
   const missing = [];
-  if(!form.pharmacie.value) missing.push('pharmacie');
+  if(!form.pharmacie_id.value){
+    missing.push('pharmacie');
+    // Distingue "rien tapé du tout" de "tapé quelque chose qui ne correspond à rien"
+    document.getElementById('pharmacie-non-trouvee').hidden = !form.pharmacie.value.trim();
+  }
   if(!form.querySelector('input[name="raison"]:checked')) missing.push('raison');
   if(!form.querySelectorAll('input[name="pour"]:checked').length) missing.push('pour');
   ['accueil','conseil','delivrance','confidentialite','experience'].forEach(q => {
@@ -61,10 +88,11 @@ function serialize(form){
       payload[key] = [payload[key], value];
     }
   }
-  // Signaux anti-bot — le backend décide quoi en faire
-  payload.site_web = form.site_web.value; // honeypot : doit être vide
-  payload.temps_remplissage_ms = Date.now() - FORM_LOADED_AT;
-
+  // "pour" doit toujours être un tableau, même avec une seule case cochée
+  // (sinon FormData ne produit qu'une chaîne simple, que le backend rejette).
+  if(payload.pour !== undefined && !Array.isArray(payload.pour)){
+    payload.pour = [payload.pour];
+  }
   return payload;
 }
 
@@ -87,6 +115,10 @@ function initForm(){
     sendError.hidden = true;
 
     const payload = serialize(form);
+    payload.temps_remplissage_ms = Date.now() - FORM_LOADED_AT;
+    // payload.site_web est déjà inclus automatiquement par serialize()
+    // puisque c'est un champ du formulaire (le honeypot lui-même).
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi en cours…';
 
@@ -113,6 +145,7 @@ function initForm(){
 
 document.addEventListener('DOMContentLoaded', () => {
   loadPharmacies();
+  initPharmacieAutocomplete();
   initAutreReveal();
   initForm();
 });

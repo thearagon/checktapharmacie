@@ -1,21 +1,13 @@
 /*
   ADMIN — connexion + tableau complet
   =====================================
-  ⚠️ SÉCURITÉ : ce fichier ne PROTÈGE RIEN à lui seul. Tant qu'il n'y
-  a pas de vrai backend qui vérifie le token avant de renvoyer les
-  données, n'importe qui connaissant l'URL du fichier JSON complet
-  (notes < 3 incluses) peut y accéder directement, login ou pas.
-  Cette page est prête à être branchée sur un vrai backend — c'est
-  lui qui doit refuser de servir /api/admin/pharmacies sans token
-  valide.
-
-  ⚠️ À FAIRE : remplacer API_URL par l'URL réelle du backend.
-  En attendant, DATA_URL_DEV charge un fichier JSON local d'exemple
-  (à ne jamais déployer publiquement une fois le vrai backend prêt).
+  Toute la protection réelle vient du backend : /api/admin/pharmacies
+  refuse de répondre sans un token valide (voir api_reponses.py côté
+  serveur). Ce fichier se contente de porter ce token dans l'en-tête
+  Authorization de chaque requête.
 */
 
 const API_URL = "https://VOTRE-BACKEND.example/api";
-const DATA_URL_DEV = "assets/data/admin-annuaire.json"; // dev uniquement
 
 const TOKEN_KEY = "checktapharmacie_admin_token";
 
@@ -109,8 +101,7 @@ function onLogoutClick(e){
 }
 
 function syncNavLogin(loggedIn){
-  // const link = document.querySelector("site-header .nav__login");
-  const link = document.querySelector("site-footer .footer__link[href$='admin.html']");
+  const link = document.querySelector("site-header .nav__login");
   if(!link) return;
 
   if(loggedIn){
@@ -131,9 +122,14 @@ async function loadPharmacies(){
   const tbody = document.getElementById("admin-tbody");
 
   try{
-    // En prod : fetch(`${API_URL}/admin/pharmacies`, { headers: { Authorization: `Bearer ${getToken()}` } })
-    // En dev, tant que le backend n'existe pas, on charge le fichier local d'exemple :
-    const res = await fetch(DATA_URL_DEV);
+    const res = await fetch(`${API_URL}/admin/pharmacies`, {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    });
+    if(res.status === 401){
+      clearToken();
+      location.reload();
+      return;
+    }
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
     pharmacies = await res.json();
     render();
@@ -191,6 +187,7 @@ function pharmacieCorrespond(p){
   const raison = document.getElementById("filtre-raison").value;
   const motif = document.getElementById("filtre-motif").value;
   const badge = document.getElementById("filtre-badge").value;
+  const statut = document.getElementById("filtre-statut").value;
 
   const score = critere ? p.criteria[critere] : p.average;
 
@@ -200,6 +197,8 @@ function pharmacieCorrespond(p){
   if(motif && !(p.motifs || []).includes(motif)) return false;
   if(badge === "aucun" && p.badges.length) return false;
   if(badge && badge !== "aucun" && !p.badges.includes(badge)) return false;
+  if(statut === "visible" && p.masquee_annuaire) return false;
+  if(statut === "retiree" && !p.masquee_annuaire) return false;
 
   return true;
 }
@@ -287,7 +286,10 @@ function ligneHTML(p){
   return `
     <tr data-id="${p.id}" data-clickable>
       <td>
-        <div class="admin-table__name">${p.name}</div>
+        <div class="admin-table__name">
+          ${p.name}
+          ${p.masquee_annuaire ? '<span class="badge badge--warn" style="margin-left:.5rem;">Retirée sur demande</span>' : ''}
+        </div>
         <div class="admin-table__address">${p.address}, ${p.city}</div>
       </td>
       <td>
@@ -306,7 +308,7 @@ function ligneHTML(p){
         </div>
       </td>
       <td>
-        <a class="admin-table__rawlink" href="pharmacie-detail.html?id=${p.id}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+        <a class="admin-table__rawlink" href="pharmacie-detail.html?id=${p.id}#${encodeURIComponent(getToken() || '')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
           Voir tout →
         </a>
       </td>
@@ -358,7 +360,10 @@ function detailRowHTML(p){
     <tr class="admin-detail-row" data-for="${p.id}">
       <td colspan="5">
         <div class="pharmacy-popup" style="max-width:360px;">
-          <p class="pharmacy-popup__name">${p.name}</p>
+          <p class="pharmacy-popup__name">
+            ${p.name}
+            ${p.masquee_annuaire ? '<span class="badge badge--warn" style="margin-left:.5rem;">Retirée sur demande</span>' : ''}
+          </p>
           <p class="pharmacy-popup__address">${p.address}, ${p.city}</p>
           <div class="pharmacy-popup__score" style="color:${couleurMoyenne(p.average)}">
             ${p.average.toFixed(1)}<span>/5</span>
@@ -522,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLogin();
   initMapToggle();
 
-  ["filtre-note", "filtre-critere", "filtre-raison", "filtre-motif", "filtre-badge"].forEach(id => {
+  ["filtre-note", "filtre-critere", "filtre-raison", "filtre-motif", "filtre-badge", "filtre-statut"].forEach(id => {
     document.getElementById(id).addEventListener("change", render);
   });
 

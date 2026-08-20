@@ -518,6 +518,15 @@ site-footer{
   opacity: .55;
 }
 #callout-pharmaciens:focus-visible{ outline: 2px solid var(--teal); outline-offset: 2px; }
+.content__card{
+  background: var(--cream-soft);
+  border-left: 4px solid var(--violet);
+  border-radius: 6px;
+  padding: var(--gap-sm) var(--gap-sm) calc(var(--gap-sm) - .5rem);
+  margin: var(--gap-sm) 0;
+}
+.content__card .content__notice{ margin-top: 0; }
+.content__card ul{ margin-bottom: 0; }
 
 /* ============================================================
    10. FORMULAIRE — composants réutilisables

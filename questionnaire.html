@@ -28,23 +28,32 @@
       Merci de compléter toutes les questions obligatoires (*) avant d'envoyer le questionnaire.
     </div>
 
-    <div id="questionnaire-form-wrapper">
+<div id="questionnaire-form-wrapper">
       <form id="questionnaire-form" novalidate>
+
+        <!-- Piège à bots — invisible pour un humain, ne pas retirer -->
+        <input type="text" name="site_web" id="site_web" autocomplete="off" tabindex="-1"
+               style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" aria-hidden="true">
 
         <!-- ============================================================
              PHARMACIE
              ============================================================ -->
-  <div class="form-question">
-    <label class="form-question__label" for="pharmacie">
-      Au cours de l'année passée, tu t'es rendu·e dans une pharmacie du département de l'Isère (38), laquelle&nbsp;?
-      <span class="required">*</span>
-    </label>
-    <input class="form-input" type="text" id="pharmacie" name="pharmacie"
-          list="pharmacies-list" autocomplete="off" placeholder="Tape le nom, la ville, le code postale ou la rue…">
-    <datalist id="pharmacies-list">
-      <!-- Options ajoutées automatiquement depuis assets/data/pharmacies.json -->
-    </datalist>
-  </div>
+        <div class="form-question">
+          <label class="form-question__label" for="pharmacie">
+            Au cours de l'année passée, tu t'es rendu·e dans une pharmacie du département de l'Isère (38), laquelle&nbsp;?
+            <span class="required">*</span>
+          </label>
+          <input class="form-input" type="text" id="pharmacie" name="pharmacie"
+                list="pharmacies-list" autocomplete="off" placeholder="Tape le nom, la ville, le code postal ou la rue…">
+          <datalist id="pharmacies-list">
+            <!-- Options ajoutées automatiquement depuis assets/data/pharmacies.json -->
+          </datalist>
+          <input type="hidden" id="pharmacie_id" name="pharmacie_id">
+          <p id="pharmacie-non-trouvee" class="form-section__hint" hidden>
+          <br>
+            Sélectionne bien une pharmacie dans la liste proposée.
+          </p>
+        </div>
 
         <!-- ============================================================
              RAISON DE LA VISITE
@@ -266,10 +275,6 @@
           </div>
         </div>
         
-        <!-- Piège à bots — invisible pour un humain, ne pas retirer -->
-      <input type="text" name="site_web" id="site_web" autocomplete="off" tabindex="-1"
-       style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" aria-hidden="true">
-
         <div id="form-send-error" class="form-error" role="alert" hidden>
           L'envoi a échoué. Vérifie ta connexion et réessaie — tes réponses sont toujours dans le formulaire.
         </div>

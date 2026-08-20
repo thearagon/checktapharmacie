@@ -1,19 +1,19 @@
 /*
   FICHE COMPLÈTE D'UNE PHARMACIE
   ================================
-  Lit l'id dans l'URL (?id=...), retrouve la pharmacie dans le jeu
-  de données, et affiche :
+  Lit l'id dans l'URL (?id=...), le token dans le fragment (#...) — passé
+  par admin.js au moment d'ouvrir ce nouvel onglet, puisque le
+  sessionStorage ne se propage pas forcément de façon fiable entre onglets
+  selon les navigateurs — puis interroge le backend pour retrouver la
+  pharmacie et affiche :
   - ses informations générales (aplaties en champ/valeur)
   - son commentaire admin (s'il y en a un)
   - le détail de CHAQUE réponse individuelle (une ligne par réponse
     au questionnaire), pour pouvoir par exemple repérer une note
     moyenne par raison de visite ou par motif.
-
-  ⚠️ Charge le même fichier de dev que l'admin — à remplacer par un
-  vrai appel backend authentifié une fois qu'il existe.
 */
 
-const DATA_URL_DEV = "assets/data/admin-annuaire.json";
+const API_URL = "https://VOTRE-BACKEND.example/api";
 
 const MOTIF_LABELS = {
   preservatif: "Préservatif", contraception: "Contraception",
@@ -49,15 +49,28 @@ function formatDate(iso){
 async function init(){
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
+  const token = decodeURIComponent(location.hash.slice(1) || "");
   const container = document.getElementById("fiche-container");
 
   if(!id){
     container.innerHTML = `<p class="pharmacy-list__empty">Aucun identifiant fourni dans l'URL (?id=...).</p>`;
     return;
   }
+  if(!token){
+    container.innerHTML = `<p class="pharmacy-list__empty">Session expirée ou lien ouvert directement — reviens depuis le tableau admin.</p>`;
+    return;
+  }
 
   try{
-    const res = await fetch(DATA_URL_DEV);
+    const res = await fetch(`${API_URL}/admin/pharmacies`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if(res.status === 401){
+      container.innerHTML = `<p class="pharmacy-list__empty">Session expirée — reviens depuis le tableau admin et réessaie.</p>`;
+      return;
+    }
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
     const pharmacies = await res.json();
     const p = pharmacies.find(p => p.id === id);
 

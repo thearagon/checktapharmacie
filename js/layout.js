@@ -66,7 +66,7 @@ class SiteHeader extends HTMLElement {
           <li><a href="${RES}abus.html">Que faire en cas d'abus ?</a></li>
           <span class="nav__sublabel">L'annuaire</span>
           <li><a href="${RES}faq.html">FAQ</a></li>
-          <li><a href="${RES}pharmacienne.html">Je suis pharmacien·ne</a></li>
+          <li><a href="${RES}pharmacien.html">Je suis pharmacien·ne</a></li>
         </ul>
       </li>
       <li><a class="nav__link" href="https://www.helloasso.com/associations/planning-familial-isere/formulaires/2">Soutenir le Planning Familial</a></li>

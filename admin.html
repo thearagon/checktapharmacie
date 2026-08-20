@@ -52,7 +52,7 @@
     <div id="admin-wrap" hidden>
       <header class="content__intro" style="text-align:left; margin-bottom:1.5rem;">
         <span class="content__eyebrow">Administration</span>
-        <h1 class="content__title" style="font-size:2rem;">La base de donnée des <span class="chalk chalk--teal">pharmacies</span></h1>
+        <h1 class="content__title" style="font-size:2rem;">Toutes les <span class="chalk chalk--teal">pharmacies</span></h1>
       </header>
 
       <div class="admin-toolbar">
@@ -116,6 +116,15 @@
               <option value="contactee">Contactée</option>
               <option value="a_tester">À tester</option>
               <option value="aucun">Sans badge</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filtre-statut">Statut annuaire</label>
+            <select class="form-select" id="filtre-statut">
+              <option value="">Toutes</option>
+              <option value="visible">Visibles</option>
+              <option value="retiree">Retirées sur demande</option>
             </select>
           </div>
         </div>

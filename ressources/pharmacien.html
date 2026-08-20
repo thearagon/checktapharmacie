@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Je suis une pharmacien·ne — Planning Familial 38</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/layout.js" defer></script>
+<script src="../js/pharmacien.js" defer></script>
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <article class="content">
+
+    <header class="content__intro">
+      <span class="content__eyebrow">Pharmacien·nes</span>
+      <h1 class="content__title">Je suis une <span class="chalk chalk--teal">pharmacien·ne</span></h1>
+    </header>
+
+    <p>Notre objectif est de proposer <strong>un outil constructif et en lien avec les pharmacien·nes</strong>. C'est pour cela que nous n'intégrons que les coordonnées de pharmacies nous ayant été recommandées sur des critères positifs. Nous sommes conscient·es que cet outil est basé sur des expériences qui peuvent diverger, et que plusieurs personnes officient au sein d'une pharmacie&nbsp;: nous considérons qu'une note moyenne est un bon indicateur si le nombre de réponses est suffisant.</p>
+    
+        <p>Nous vous demandons de ne pas utiliser cette liste pour faire votre publicité.</p>
+
+
+      <div class="content__card" style="margin-top:.5rem;">
+    <p> <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-heart"></use></svg> Si vous trouvez votre officine sur cet annuaire, c'est que vous avez permis à une personne de se sentir écoutée, informée et globalement bien traitée pour des conseils ou délivrances relevant de la santé sexuelle.</p> </div>
+
+    <!-- ============================================================
+         FORMULAIRE DE RETRAIT
+         ============================================================ -->
+    <header style="margin-top:6rem;" "margin-bottom:.2rem;" class="content__intro">
+      <h1 class="content__title" >Retirer mon officine <span class="chalk chalk--teal">de l'annuaire</span></h1>
+    </header>
+    <div class="form-section">
+      <p class="form-section__hint">La demande est envoyée directement à l'équipe — pas besoin d'envoyer un mail.</p>
+
+      <p class="form-section__hint">
+          <strong>Vérification</strong><br>
+          Le nom indiqué ci-dessous est comparé au registre public. En cas de non-correspondance, nous vous recontacterons à l'adresse indiquée.
+        </p>
+        <p style="margin-top:.8rem;" class="form-section__hint">
+          <strong>Données personnelles (RGPD)</strong><br>
+          Les informations transmises via ce formulaire (nom, e-mail, message) sont utilisées uniquement pour traiter cette demande de retrait et ne sont ni partagées avec des tiers, ni utilisées à d'autres fins.
+        </p>
+
+      <div id="form-error" class="form-error" role="alert" hidden>
+        Merci de compléter tous les champs obligatoires (*).
+      </div>
+
+      <div id="retrait-form-wrapper">
+        <form id="retrait-form" novalidate>
+
+          <!-- Piège à bots — invisible pour un humain, ne pas retirer -->
+          <input type="text" name="site_web" id="site_web" autocomplete="off" tabindex="-1"
+                 style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" aria-hidden="true">
+
+      <div class="form-question">
+        <label class="form-question__label" for="pharmacie-retrait">Ma pharmacie <span class="required">*</span></label>
+        <input class="form-input" type="text" id="pharmacie-retrait" name="pharmacie"
+              list="pharmacies-retrait-list" autocomplete="off" placeholder="Tape le nom, la ville, le code postal ou la rue…">
+        <datalist id="pharmacies-retrait-list">
+          <!-- Options ajoutées automatiquement depuis assets/data/annuaire.json -->
+        </datalist>
+        <input type="hidden" id="pharmacie_id" name="pharmacie_id">
+        <p id="pharmacie-non-trouvee" class="form-question__desc" hidden>
+          Sélectionne bien ta pharmacie dans la liste proposée pendant que tu tapes.
+        </p>
+      </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="nom-pharmacien">Nom et prénom <span class="required">*</span></label>
+            <input class="form-input" type="text" id="nom-pharmacien" name="nom_pharmacien" required>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="email-contact">E-mail de contact <span class="required">*</span></label>
+            <input class="form-input" type="email" id="email-contact" name="email_contact" required>
+          </div>
+
+          <div class="form-question">
+            <label class="form-question__label" for="message-retrait">Message (optionnel)</label>
+            <textarea class="form-textarea" id="message-retrait" name="message" rows="4"></textarea>
+          </div>
+
+          <div id="form-send-error" class="form-error" role="alert" hidden>
+            L'envoi a échoué. Vérifiez votre connexion.
+          </div>
+
+          <div class="content__cta">
+            <button class="btn btn--ink btn--lg" type="submit">
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-alert"></use></svg>
+              Envoyer la demande de retrait
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <div id="retrait-confirmation" class="form-confirmation" hidden>
+        <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-shield"></use></svg>
+        <h2 class="content__title" style="font-size:1.8rem;">Demande envoyée</h2>
+        <p class="content__lead">Votre demande a bien été transmise. Vous recevrez une confirmation par e-mail ou serez contacté·e directement.</p>
+      </div>
+    </div>
+
+    <div class="content__card">
+      <p>Pour nous contacter à propos d'un autre sujet, vous pouvez envoyer un mail à <a href="mailto:info@checktapharmacie.fr">info@checktapharmacie.fr</a>. N'hésitez pas à nous communiquer toute suggestion, retour ou commentaire.</p>
+    </div>
+
+  </article>
+</main>
+
+<site-footer></site-footer>
+
+</body>
+</html>
