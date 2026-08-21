@@ -63,7 +63,6 @@ class SiteHeader extends HTMLElement {
         </a>
         <ul class="nav__dropdown">
           <li><a href="${RES}droits.html">Mes droits</a></li>
-          <li><a href="${RES}abus.html">Que faire en cas d'abus ?</a></li>
           <span class="nav__sublabel">L'annuaire</span>
           <li><a href="${RES}faq.html">FAQ</a></li>
           <li><a href="${RES}pharmacien.html">Je suis pharmacien·ne</a></li>
